@@ -120,6 +120,10 @@ code {
 
 /*content*/
 
+#content .container {
+    margin: 0px 20px 0px 20px;
+}
+
 .post, .about {
     max-width: 820px;
 
