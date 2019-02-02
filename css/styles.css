@@ -71,6 +71,10 @@ code {
     font-weight: bold;
 }
 
+#header .container {
+    padding: 0px 10px 0px 10px;
+}
+
 #header-nav {
     display: block;
     float: right;
