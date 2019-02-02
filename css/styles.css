@@ -75,6 +75,10 @@ code {
     font-weight: bold;
 }
 
+#header .container {
+    padding: 0px 10px 0px 10px;
+}
+
 #header-nav {
     display: block;
     float: right;
@@ -226,6 +230,7 @@ code {
 .about-content p {
     -webkit-user-select: text;
 }
+<<<<<<< HEAD
 
 /* login popup */
 
@@ -252,3 +257,5 @@ code {
 
     border-radius: 10px;
 }
+=======
+>>>>>>> 4858bd68716e848286d49e20eaab7737acc85c44
