@@ -7,10 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="scripts/main.js"></script>
     <title>Home</title>
 </head>
 
 <body>
+
+    <div id="login-wrap" style="display: none"></div>
+    <div id=login-popup  style="display: none">
+        <h4 onclick="show('none');">x</h4>
+    </div>
 
     <div id="header">
         <div class="container">
@@ -18,6 +24,7 @@
             <ul id="header-nav">
                 <li><a href="about.html">About</a></li>
                 <li><a href="mailto:artglz63@gmail.com">Contact</a></li>
+                <li><button onclick="show('block');">Login</button></li>
             </ul>
         </div>
     </div>
