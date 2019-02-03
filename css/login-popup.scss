@@ -1,0 +1,143 @@
+$color-aqua: #007991;
+$color-text-main: #222E50;
+$color-text-main-darken: #222;
+
+@mixin TopBottomLeftRight($state) {
+    top: $state;
+    right: $state;
+    bottom: $state;
+    left: $state;
+}
+
+* {
+    font-family: Rubik;
+}
+
+#login-wrap {
+    z-index: 1;
+    position: fixed;
+
+    @include TopBottomLeftRight(0);
+
+    background-color: #0000008f;
+}
+
+#login-popup {
+    z-index: 2;
+
+    background-color: #fff;
+    color: $color-text-main;
+
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 20px #0000002d;
+
+    position: absolute;
+    margin: auto;
+    align-items: center;
+
+    @include TopBottomLeftRight(0);
+    
+    padding: 20px;
+    
+    button {
+        float: right;
+        
+        border: 0;
+        padding: 1px 10px 3px 10px;
+
+        color: $color-text-main;
+        font-size: 24px;
+        font-weight: 500;
+        background-color: #fff;
+
+        cursor: pointer;
+
+        &:hover, &::selection, &:focus {
+            background-color: #23464d2a;
+            border-radius: 20px;
+            color: $color-text-main-darken;
+            transition: 0.3s all;
+            outline: 0;
+        }
+        
+    }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            position: absolute;             
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            input {
+                background-color: #00799113;
+
+                font-size: 14px;
+                
+                box-sizing: border-box;
+
+                border:0;
+                border-radius: 20px;
+
+                margin: 5px auto;
+                width: 185px;
+                
+                padding: 15px;
+
+                &:hover, &::selection, &:focus {
+                    background-color: #23464d2a;
+                    box-shadow: 0 3px 7px #0000000e;
+                    transition: 0.3s all;
+                    outline-style: none;
+                } 
+
+                &[type=submit] {
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: #fff;
+                    background-color: $color-aqua;
+                    cursor: pointer;
+
+                    &:hover, &::selection, &:focus{
+                        background-color: #036174;
+                        box-shadow: 0 3px 7px #0000000e;
+                        transition: 0.3s all;
+                    }
+                }
+            }
+            
+            h3 {
+                font-size: 36px;
+                margin: 0 0 10px 3px;
+            }
+
+            p {
+                margin: 2px 0 0 0;
+                display: flex;
+                justify-content: center;
+
+                a {
+                    font-size: 14px;
+                    font-weight: 500;
+                    width: 80px;
+                    padding: 5px 0 5px 0;
+                    border-radius: 20px;
+                    text-align: center;
+                    transition: 0.3s all;
+
+                    &:hover, &::selection, &:focus {
+                        color: $color-text-main-darken;
+                        cursor: pointer;
+                        width: 185px;
+                        background-color: #23464d2a;
+                        transition: 0.4s all;
+                        outline: 0;
+                    }
+                }
+            }
+        }
+    }

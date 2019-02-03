@@ -6,28 +6,16 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="scripts/main.js"></script>
     <title>Home</title>
 </head>
 
 <body>
 
-    <div id="login-wrap" style="display: none"></div>
-    <div id=login-popup  style="display: none">
-        <h4 onclick="show('none');">x</h4>
-    </div>
+    <?php include 'php/components/login-popup.php';?>
+    <?php include 'php/components/header.php';?>
 
-    <div id="header">
-        <div class="container">
-            <h4><a href="index.html" id="header-title">My Blog</a></h4>
-            <ul id="header-nav">
-                <li><a href="about.html">About</a></li>
-                <li><a href="mailto:artglz63@gmail.com">Contact</a></li>
-                <li><button onclick="show('block');">Login</button></li>
-            </ul>
-        </div>
-    </div>
 
     <div id="content">
         <div class="container">
@@ -76,22 +64,7 @@
         </div>
     </div>
 
-    <div id="footer">
-        <div class="container">
-            <div class="column">
-                <h4>My Links</h4>
-                <p>
-                    <a href="https://twitter.com/ArtyomPLAY">Twitter</a>
-                    <br>
-                    <a href="https://vk.com/artpnz2000">VK</a>
-                </p>
-            </div>
-            <div class="column">
-                <h4><a href="about.html" class="link-about">About Me</a></h4>
-                <p>Hej! I'm very beginner to web development, but i really want to be in! Learn, learn, learn!</p>
-            </div>
-        </div>
-    </div>
+    <?php include 'php/components/footer.php'; ?>
 
 </body>
 

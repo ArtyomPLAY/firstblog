@@ -1,0 +1,178 @@
+* {
+  font-family: Rubik;
+}
+
+#login-wrap {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0000008f;
+}
+
+#login-popup {
+  z-index: 2;
+  background-color: #fff;
+  color: #222E50;
+  width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 20px #0000002d;
+          box-shadow: 0 5px 20px #0000002d;
+  position: absolute;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+}
+
+#login-popup button {
+  float: right;
+  border: 0;
+  padding: 1px 10px 3px 10px;
+  color: #222E50;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#login-popup button:hover, #login-popup button::-moz-selection, #login-popup button:focus {
+  background-color: #23464d2a;
+  border-radius: 20px;
+  color: #222;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  outline: 0;
+}
+
+#login-popup button:hover, #login-popup button::selection, #login-popup button:focus {
+  background-color: #23464d2a;
+  border-radius: 20px;
+  color: #222;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  outline: 0;
+}
+
+#login-popup form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#login-popup form input {
+  background-color: #00799113;
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  margin: 5px auto;
+  width: 185px;
+  padding: 15px;
+}
+
+#login-popup form input:hover, #login-popup form input::-moz-selection, #login-popup form input:focus {
+  background-color: #23464d2a;
+  box-shadow: 0 3px 7px #0000000e;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  outline-style: none;
+}
+
+#login-popup form input:hover, #login-popup form input::selection, #login-popup form input:focus {
+  background-color: #23464d2a;
+  -webkit-box-shadow: 0 3px 7px #0000000e;
+          box-shadow: 0 3px 7px #0000000e;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  outline-style: none;
+}
+
+#login-popup form input[type=submit] {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background-color: #007991;
+  cursor: pointer;
+}
+
+#login-popup form input[type=submit]:hover, #login-popup form input[type=submit]::-moz-selection, #login-popup form input[type=submit]:focus {
+  background-color: #036174;
+  box-shadow: 0 3px 7px #0000000e;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#login-popup form input[type=submit]:hover, #login-popup form input[type=submit]::selection, #login-popup form input[type=submit]:focus {
+  background-color: #036174;
+  -webkit-box-shadow: 0 3px 7px #0000000e;
+          box-shadow: 0 3px 7px #0000000e;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#login-popup form h3 {
+  font-size: 36px;
+  margin: 0 0 10px 3px;
+}
+
+#login-popup form p {
+  margin: 2px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#login-popup form p a {
+  font-size: 14px;
+  font-weight: 500;
+  width: 80px;
+  padding: 5px 0 5px 0;
+  border-radius: 20px;
+  text-align: center;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#login-popup form p a:hover, #login-popup form p a::-moz-selection, #login-popup form p a:focus {
+  color: #222;
+  cursor: pointer;
+  width: 185px;
+  background-color: #23464d2a;
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+  outline: 0;
+}
+
+#login-popup form p a:hover, #login-popup form p a::selection, #login-popup form p a:focus {
+  color: #222;
+  cursor: pointer;
+  width: 185px;
+  background-color: #23464d2a;
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+  outline: 0;
+}
+/*# sourceMappingURL=login-popup.css.map */
