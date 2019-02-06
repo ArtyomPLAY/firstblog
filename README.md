@@ -1,1 +1,1 @@
-# My first blog ever written on HTML, CSS
+# My first blog ever
