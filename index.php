@@ -15,9 +15,9 @@
 
     <?php include 'php/auth/login.php';?>
     <?php include 'php/components/header.php';?>
+    <?php include 'php/components/content.php';?>
 
-
-    <div id="content">
+    <!--<div id="content">
         <div class="container">
             <div class="post">
                 <div class="post-author">
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <?php include 'php/components/footer.php'; ?>
 

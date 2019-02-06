@@ -8,6 +8,7 @@ R::setup( 'mysql:host=localhost;dbname=blog',
 //$isConnected = R::testConnection();
 //echo $isConnected;
 
+
 session_start();
 
 ?>
