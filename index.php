@@ -13,7 +13,7 @@
 
 <body>
 
-    <?php include 'php/components/login-popup.php';?>
+    <?php include 'php/auth/login.php';?>
     <?php include 'php/components/header.php';?>
 
 

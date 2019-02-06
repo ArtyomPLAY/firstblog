@@ -3,9 +3,10 @@
             <div class="column">
                 <h4>My Links</h4>
                 <p>
-                    <a href="https://twitter.com/ArtyomPLAY">Twitter</a>
-                    <br>
-                    <a href="https://vk.com/artpnz2000">VK</a>
+                    <a href="https://twitter.com/ksyd3x"><img src="content/twitter.png" alt="Twitter"></a>
+                    <a href="https://vk.com/artpnz2000"><img src="content/vk.png" alt="VK"></a>
+                    <a href="https://www.behance.net/artglz633efb"><img src="content/behance.jpg" alt="Behance"></a>
+
                 </p>
             </div>
             <div class="column">

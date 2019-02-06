@@ -1,12 +1,23 @@
+var current_popup;
+window.onload=function(){
+    current_popup = document.getElementById('login-popup');
+}
+
 function show(state) {
     var wrap =  document.getElementById('login-wrap');
-    var popup = document.getElementById('login-popup');
     wrap.style.display = state;
-    popup.style.display = state;
+    current_popup.style.display = state;
     console.log("displayed");
 }
-/*window.onload=function(){
-var element = document.getElementById("topmenu");
-firstcolor = window.getComputedStyle(element).backgroundColor;
-console.log("Первый цвет:" + firstcolor + element);
-}*/
+
+function switchTab(tab){
+    current_popup = document.getElementById(tab);
+
+    if(tab == 'signup-popup')
+        var sec_popup = document.getElementById('login-popup');
+    else
+        var sec_popup = document.getElementById('signup-popup');
+
+    current_popup.style.display = 'block';
+    sec_popup.style.display = 'none';
+}
