@@ -17,7 +17,6 @@ if (isset($data['do_signup'])) {
         //если нет ошибок, то 
         echo 'ошибок нет!';
         //если логин занят
-        var_dump($data);
         if(R::count('users',"login = ?", array($data['login']))>0){
             $errors[] = "This login is already taken, try again.";
         }
@@ -27,13 +26,16 @@ if (isset($data['do_signup'])) {
         }
         //если не занят ни емаил ни логин
         else{
+            echo '<div style="color:green;">Registration successful.</div><hr>';
             $user = R::dispense('users');
             $user->login = $data['login'];
             $user->email = $data['email'];
             $user->password = password_hash($data['password'],PASSWORD_DEFAULT);
+            $user->avatar = '';
             R::store($user);
+            sleep(3);
             header("Location: /");
-            echo '<div style="color:green;">Registration successful.</div><hr>';
+
         }
     }
     else{
@@ -45,7 +47,7 @@ if (isset($data['do_signup'])) {
 
 <!--<link rel="stylesheet" href="/css/login-popup.css">
 <div id="login-wrap" style="display: block"></div>-->
-    <div id="signup-popup" style="display: <?php if(isset($data['do_signup'])){echo 'block';}else echo 'none'; ?>">
+    <div id="signup-popup" style="display: none">
         <button onclick="show('none');" tabindex="7">x</button>
         <form action="<?php echo $path ?>signup.php"  method="post">
             <h3>Sign up</h3>

@@ -8,7 +8,7 @@ if(isset($data['post_submit']))
    $post->title = $data['title'];
    $post->content = $data['content'];
    $post->authors_id = $_SESSION['logged_user']->id;
-   $post->pub_date = date('Y-m-d G:i');
+   $post->pub_date = date('F j, H:i');
    R::store($post);
 }
 

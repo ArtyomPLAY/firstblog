@@ -42,7 +42,7 @@ if(isset($data['do_login'])){
 
 ?>
 
-<link rel="stylesheet" href="/css/login-popup.css">
+<link rel="stylesheet" href="/css/main.css">
 <div id="login-wrap" style="display: none"></div>
 <?php require "signup.php"; ?>
     <div id="login-popup" style="display: none;">
