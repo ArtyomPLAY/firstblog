@@ -46,14 +46,14 @@ if(isset($data['do_login'])){
 <div id="login-wrap" style="display: none"></div>
 <?php require "signup.php"; ?>
     <div id="login-popup" style="display: none;">
-        <button onclick="show('none');" tabindex="5">x</button>
+        <button class="login-popup-close" tabindex="5">x</button>
         <form action="<?php echo $path ?>login.php"  method="post">
             <h3>Log in</h3>
-            <input type="text" placeholder="login" tabindex="1" required name="login">
+            <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
             <input type="password" placeholder="password"
-            tabindex="2" required name="password">
+            tabindex="2" required name="password" readonly pattern="\D[^А-Яа-яЁё]+$">
             <input type="submit" value="Log in" tabindex="3" name="do_login">
-            <p><a tabindex="4" onclick="switchTab('signup-popup');">or sign up</a></p>
+            <p><a tabindex="4" class="switch-tab">or sign up</a></p>
         </form>
     </div>
 

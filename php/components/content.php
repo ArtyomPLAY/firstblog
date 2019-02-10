@@ -28,8 +28,18 @@ $posts = R::findAll('posts','ORDER BY id DESC');
                 <? } ?>
             </div>    
             <div class="right-col">
-                <div>
-                    <button>Write Post</button>
+                <div class="right-col-content">
+                    <? if(isset($_SESSION['logged_user'])): 
+                    include $_SERVER['DOCUMENT_ROOT'] . "/php/components/post_form.php";?>
+                    <button class="postwr">Write Post</button>
+                    <? endif ?>
+                    <ul class="threads">
+                        <p>Threads</p>
+                        <li>World</li>
+                        <li>Games</li>
+                        <li>IT</li>
+                        <li>Social</li>
+                    </ul>
                 </div>
             </div>
         </div>

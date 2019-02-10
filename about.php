@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <script src="libs/jquery-3.3.1.min.js"></script>
     <script src="scripts/main.js"></script>
     <title>About</title>
 </head>

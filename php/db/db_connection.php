@@ -11,6 +11,7 @@ R::setup( 'mysql:host=localhost;dbname=blog',
 
 
 session_start();
+date_default_timezone_set('Europe/Moscow');
 
 
 

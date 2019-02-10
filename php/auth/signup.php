@@ -9,38 +9,27 @@ $path = 'php/auth/';
 
 if (isset($data['do_signup'])) {
 
-    if($data['password'] != $data['password2']){
-        $errors[] = 'Re-password do not match, try again';
-    }
-    //TODO что то не так с регой на этапе когда все правильно, отдалить 
-    if(empty($errors)){ 
-        //если нет ошибок, то 
-        echo 'ошибок нет!';
         //если логин занят
-        if(R::count('users',"login = ?", array($data['login']))>0){
-            $errors[] = "This login is already taken, try again.";
-        }
-        //если емаил занят
-        else if(R::count('users',"email = ?", array($data['email']))>0){
-            $errors[] = "This email is already in use, try again.";
-        }
-        //если не занят ни емаил ни логин
-        else{
-            echo '<div style="color:green;">Registration successful.</div><hr>';
-            $user = R::dispense('users');
-            $user->login = $data['login'];
-            $user->email = $data['email'];
-            $user->password = password_hash($data['password'],PASSWORD_DEFAULT);
-            $user->avatar = '';
-            R::store($user);
-            sleep(3);
-            header("Location: /");
-
-        }
+    if(R::count('users',"login = ?", array($data['login']))>0){
+        echo '<div style="color:red;">', 'This login is already in use, try again.', '</div><hr>';
     }
+        //если емаил занят
+    else if(R::count('users',"email = ?", array($data['email']))>0){
+        echo '<div style="color:red;">', 'This email is already in use, try again.', '</div><hr>'; 
+    }
+        //если не занят ни емаил ни логин
     else{
-        echo '<div style="color:red;">', array_shift($errors), '</div><hr>';
-    } 
+        echo '<div style="color:green;">Registration successful.</div><hr>';
+        $user = R::dispense('users');
+        $user->login = $data['login'];
+        $user->email = $data['email'];
+        $user->password = password_hash($data['password'],PASSWORD_DEFAULT);
+        $user->avatar = '';
+        R::store($user);
+        sleep(3);
+        header("Location: /");
+
+    }       
 }
 ?>
 
@@ -48,14 +37,15 @@ if (isset($data['do_signup'])) {
 <!--<link rel="stylesheet" href="/css/login-popup.css">
 <div id="login-wrap" style="display: block"></div>-->
     <div id="signup-popup" style="display: none">
-        <button onclick="show('none');" tabindex="7">x</button>
+        <button class="login-popup-close" tabindex="7">x</button>
         <form action="<?php echo $path ?>signup.php"  method="post">
             <h3>Sign up</h3>
-            <input type="text" name="login" placeholder="login" required value="<?php echo @$data['login']?>" tabindex="1"> 
-            <input type="email" name="email" placeholder="email" required value="<?php echo @$data['email']?>" tabindex="2">
-            <input type="password" name="password" placeholder="password" required tabindex="3">
-            <input type="password" name="password2" placeholder="confirm password" required tabindex="4">
+            <input type="text" name="login" placeholder="login" required value="<?php echo @$data['login']?>" tabindex="1" readonly pattern="\D[^А-Яа-яЁё]+$"> 
+            <input type="email" name="email" placeholder="email" required value="<?php echo @$data['email']?>" tabindex="2" readonly pattern="\D[^А-Яа-яЁё]+$">
+            <input type="password" name="password" placeholder="password" required tabindex="3" pattern="\D[^А-Яа-яЁё]+$">
+            <input type="password" name="password2" placeholder="confirm password" required tabindex="4" pattern="\D[^А-Яа-яЁё]+$">
+            <p class="passv-tip">Passwords do not match</p>
             <input type="submit" name="do_signup" value="Sign up" tabindex="5">
-            <p><a tabindex="6" onclick="switchTab('login-popup');">or log in</a></p>
+            <p><a tabindex="6" class="switch-tab">or log in</a></p>
         </form>
     </div>

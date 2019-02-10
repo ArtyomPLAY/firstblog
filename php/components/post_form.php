@@ -1,21 +1,35 @@
 <?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 
-$data = $_POST;
-if(isset($data['post_submit']))
-{
-   $post = R::dispense('posts');
-   $post->title = $data['title'];
-   $post->content = $data['content'];
-   $post->authors_id = $_SESSION['logged_user']->id;
-   $post->pub_date = date('F j, H:i');
-   R::store($post);
-}
+if(isset($_SESSION['logged_user'])):
+    $data = $_POST;
+    if(isset($data['post_submit']))
+    {
+    $post = R::dispense('posts');
+    $post->title = $data['title'];
+    $post->content = $data['content'];
+    $post->authors_id = $_SESSION['logged_user']->id;
+    $post->pub_date = date('F j, H:i');
+    $post->tags = mb_strtolower($data['tags']);
+    R::store($post);
+    header('Location: /');
+    }
 
 
-?>
-<form action="post_form.php" method="post">
-    <input type="text" name="title" placeholder="Title" required>
-    <textarea name="content" cols="30" rows="45" placeholder="Write text" required></textarea>
-    <input type="submit" value="post" name="post_submit">
-</form>
+    ?>
+    <link rel="stylesheet" href="/css/main.css">
+    <div id="post-form" style="display:none">
+        <div class="post-wrap"></div>
+        <form action="php/components/post_form.php" method="post">
+        <div class="top">    
+            <input type="text" name="title" placeholder="Title" required>
+            <button class="post-popup-close" tabindex="7">x</button>
+        </div>
+            <textarea name="content" cols="30" rows="20" placeholder="Say something:)" required></textarea>
+            <div class="down">
+                <input type="text" placeholder="Tags: #news, #games etc." name="tags">
+                <input type="submit" value="Post" name="post_submit" class="button">
+            </div>
+        </form>
+    </div>
+<? endif ?>

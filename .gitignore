@@ -1,2 +1,4 @@
 *.scss
 *.css.map
+*.json
+**/node_modules/
