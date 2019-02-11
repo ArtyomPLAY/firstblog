@@ -42,8 +42,8 @@ if (isset($data['do_signup'])) {
             <h3>Sign up</h3>
             <input type="text" name="login" placeholder="login" required value="<?php echo @$data['login']?>" tabindex="1" readonly pattern="\D[^А-Яа-яЁё]+$"> 
             <input type="email" name="email" placeholder="email" required value="<?php echo @$data['email']?>" tabindex="2" readonly pattern="\D[^А-Яа-яЁё]+$">
-            <input type="password" name="password" placeholder="password" required tabindex="3" pattern="\D[^А-Яа-яЁё]+$">
-            <input type="password" name="password2" placeholder="confirm password" required tabindex="4" pattern="\D[^А-Яа-яЁё]+$">
+            <input type="password" name="password" placeholder="password" required tabindex="3" >
+            <input type="password" name="password2" placeholder="confirm password" required tabindex="4" >
             <p class="passv-tip">Passwords do not match</p>
             <input type="submit" name="do_signup" value="Sign up" tabindex="5">
             <p><a tabindex="6" class="switch-tab">or log in</a></p>

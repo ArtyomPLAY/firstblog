@@ -1,13 +1,21 @@
 $(document).ready(function(){
 
+    //липкий хедер
+
+    if($(this).scrollTop()>120){
+        $('.header').addClass('header-fixed');
+    }
+
+    var scrollPos = 0;
     $(window).scroll(function(){
-        $header = $('.header');
-        if($(this).scrollTop()>=160){
-            $header.addClass('header-fixed');
+        var st = $(this).scrollTop();
+        if (st > scrollPos){
+            $('.header').addClass('header-fixed');
+        } else {
+            if($(this).scrollTop()<=120)
+            $('.header').removeClass('header-fixed');
         }
-        else{
-            $header.removeClass('header-fixed');
-        }
+        scrollPos = st;
     });
 
     //формы входа и реги
@@ -23,7 +31,7 @@ $(document).ready(function(){
 
     $('.login-popup-close').click(function(){ 
         $(this).parent().fadeOut('300');
-        $('#login-wrap').class.fadeOut('300');
+        $('#login-wrap').fadeOut('300');
     });
 
     $('.switch-tab').click(function(){

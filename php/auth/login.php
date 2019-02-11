@@ -51,7 +51,7 @@ if(isset($data['do_login'])){
             <h3>Log in</h3>
             <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
             <input type="password" placeholder="password"
-            tabindex="2" required name="password" readonly pattern="\D[^А-Яа-яЁё]+$">
+            tabindex="2" required name="password" readonly>
             <input type="submit" value="Log in" tabindex="3" name="do_login">
             <p><a tabindex="4" class="switch-tab">or sign up</a></p>
         </form>

@@ -2,11 +2,14 @@
   margin: 0;
   font-family: Rubik;
   color: #222E50;
+  -moz-user-select: none;
+  -webkit-user-select: none;
   transition: 0.3s all;
   -webkit-transition: 0.3s all; }
-  *:not(input, textarea) {
-    -moz-user-select: none;
-    -webkit-user-select: none; }
+
+input, textarea {
+  -moz-user-select: text;
+  -webkit-user-select: text; }
 
 code {
   font-family: 'Courier New', Courier, monospace; }
@@ -56,17 +59,20 @@ button, .button {
     transition: 0.3s all;
     -webkit-transition: 0.3s all; }
 
+body {
+  margin-top: 160px; }
+
 .header-fixed {
-  position: fixed;
-  width: 100%;
-  top: 0;
   padding: 0 !important;
   box-shadow: 0 0 10px rgba(0, 121, 145, 0.3);
-  transition: 0.3s all;
-  -webkit-transition: 0.3s all; }
+  transition: 0.15s all;
+  -webkit-transition: 0.15s all; }
 
 .header {
+  position: fixed;
   height: 60px;
+  width: 100%;
+  top: 0;
   padding: 50px 0 50px 0;
   background-color: #007991;
   transition: 0.3s all;
@@ -123,35 +129,39 @@ button, .button {
 #footer {
   background-color: #161e2e;
   padding: 50px 0; }
-  #footer .column {
-    min-width: 300px;
-    max-width: 650px;
-    display: inline-block;
-    vertical-align: top; }
-    #footer .column h4 {
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.1em; }
-      #footer .column h4 a:hover {
-        color: #f6a623; }
-    #footer .column p {
-      color: #fff;
-      margin-top: 17px; }
-    #footer .column a img {
-      margin-right: 10px;
-      filter: grayscale(1);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      transition: 0.3s all;
-      -webkit-transition: 0.3s all; }
-      #footer .column a img:hover {
-        filter: none;
+  #footer .container {
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px 0 10px;
+    margin: 0 auto 0 auto; }
+    #footer .container .column {
+      min-width: 300px;
+      max-width: 650px;
+      vertical-align: top; }
+      #footer .container .column h4 {
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.1em; }
+        #footer .container .column h4 a:hover {
+          color: #f6a623; }
+      #footer .container .column p {
+        color: #fff;
+        margin-top: 17px; }
+      #footer .container .column a img {
+        margin-right: 10px;
+        filter: grayscale(1);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         transition: 0.3s all;
         -webkit-transition: 0.3s all; }
-    #footer .column .link-about {
-      text-decoration: none;
-      color: #fff; }
+        #footer .container .column a img:hover {
+          filter: none;
+          transition: 0.3s all;
+          -webkit-transition: 0.3s all; }
+      #footer .container .column .link-about {
+        text-decoration: none;
+        color: #fff; }
 
 #content .container {
   overflow: hidden; }
@@ -200,6 +210,15 @@ button, .button {
       -webkit-user-select: text; }
     #content .container .left-col .post-content {
       margin-top: 15px; }
+      #content .container .left-col .post-content h1, #content .container .left-col .post-content h2, #content .container .left-col .post-content h3, #content .container .left-col .post-content h4, #content .container .left-col .post-content h5 {
+        margin: 20px 0 10px 0; }
+      #content .container .left-col .post-content img {
+        display: block;
+        margin: 20px auto 20px auto;
+        width: 50%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 100, 120, 0.06);
+        height: auto; }
       #content .container .left-col .post-content p {
         -webkit-user-select: text; }
   #content .container .right-col {
@@ -239,6 +258,28 @@ button, .button {
         #content .container .right-col .threads li:hover {
           background-color: rgba(7, 71, 84, 0.25); }
 
+@media all and (min-width: 100px) and (max-width: 1000px) {
+  #content .container .right-col {
+    display: none !important; }
+  #content .container .left-col {
+    margin: 0 10px 0 10px; } }
+@media all and (min-width: 100px) and (max-width: 630px) {
+  .header .container {
+    display: flex;
+    justify-content: center; }
+    .header .container #header-title {
+      display: none; }
+    .header .container #header-nav {
+      margin: 0 auto 0 auto;
+      padding: 0; }
+      .header .container #header-nav li:first-of-type {
+        padding: 0; }
+
+  #footer .container {
+    display: flex;
+    flex-direction: column; }
+    #footer .container .column {
+      margin-bottom: 10px; } }
 .about {
   margin: 20px 0 20px 0;
   display: block;
