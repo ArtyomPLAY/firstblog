@@ -19,13 +19,14 @@ if (isset($data['do_signup'])) {
     }
         //если не занят ни емаил ни логин
     else{
-        echo '<div style="color:green;">Registration successful.</div><hr>';
         $user = R::dispense('users');
         $user->login = $data['login'];
         $user->email = $data['email'];
         $user->password = password_hash($data['password'],PASSWORD_DEFAULT);
         $user->avatar = '';
+        $user->username = '';
         R::store($user);
+        echo '<div style="color:green;">Registration successful.</div><hr>';
         sleep(3);
         header("Location: /");
 

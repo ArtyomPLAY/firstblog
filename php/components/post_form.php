@@ -11,6 +11,9 @@ if(isset($_SESSION['logged_user'])):
     $post->authors_id = $_SESSION['logged_user']->id;
     $post->pub_date = date('F j, H:i');
     $post->tags = mb_strtolower($data['tags']);
+    $post->likes;
+    $post->reposts;
+    $post->comments;
     R::store($post);
     header('Location: /');
     }

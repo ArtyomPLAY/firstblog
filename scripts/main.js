@@ -12,11 +12,30 @@ $(document).ready(function(){
         if (st > scrollPos){
             $('.header').addClass('header-fixed');
         } else {
-            if($(this).scrollTop()<=120)
+            if($(this).scrollTop()<=100)
             $('.header').removeClass('header-fixed');
+
         }
         scrollPos = st;
     });
+
+    //user menu
+    var CursorAbove = false;
+    $('.user-profile-to-open-menu').hover(function(e){
+        var pos = $(this).position();
+        $('.user-menu').show().css('top', pos.top + 41).css('left', pos.left);
+    })
+    $('.user-menu').mouseleave(function(){
+            $(this).hide();
+    });
+
+    //футер
+    if($('body').height()<$(window).height()){
+        $('#footer').addClass('sticky-footer');
+    }
+    else{
+        $('#footer').removeClass('sticky-footer');
+    }
 
     //формы входа и реги
     $('#header-nav button').click(function(){
@@ -76,6 +95,8 @@ $(document).ready(function(){
     $('#post-form button').click(function(){
         $('#post-form').css('display','none');
     });
+
+    
 
 
 
