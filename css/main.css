@@ -89,23 +89,46 @@ body {
       transition: 0.3s all;
       -webkit-transition: 0.3s all; }
       .header .container a:hover {
+        cursor: pointer;
         color: #333;
         transition: 0.3s all;
         -webkit-transition: 0.3s all; }
     .header .container #header-title {
-      align-content: flex-start;
-      font-size: 24px;
-      font-weight: bold; }
+      align-content: flex-start; }
+      .header .container #header-title .onHover {
+        fill: #333;
+        stroke: #333; }
+      .header .container #header-title .onHoverStr {
+        fill: #333; }
+      .header .container #header-title svg {
+        width: 47px !important;
+        height: 35px !important; }
+        .header .container #header-title svg path, .header .container #header-title svg rect {
+          fill: #fff; }
+        .header .container #header-title svg rect {
+          stroke: #fff; }
     .header .container #header-nav {
       margin-left: auto;
       display: inline-block;
       align-content: flex-end; }
+      .header .container #header-nav .toggle-display {
+        display: block; }
       .header .container #header-nav li {
         display: inline;
         padding-left: 20px; }
+        .header .container #header-nav li .btn-open {
+          padding: 8px 6px 8px 6px;
+          margin-right: 3px;
+          margin-bottom: -5px; }
+          .header .container #header-nav li .btn-open:hover {
+            background-color: #ffffff17;
+            border-radius: 50%; }
+        .header .container #header-nav li .clicked {
+          transform: rotateX(180deg);
+          background-color: #ffffff3b;
+          border-radius: 50%; }
         .header .container #header-nav li img {
           vertical-align: middle;
-          margin-left: 10px;
           border-radius: 50%;
           border: #fff solid 3px;
           transition: 0.3s all;
@@ -211,8 +234,10 @@ body {
       padding: 20px; }
       #content .container .left-col .post-author span {
         margin-left: 10px; }
-        #content .container .left-col .post-author span::before {
-          content: "@"; }
+        #content .container .left-col .post-author span a {
+          color: #222E50; }
+          #content .container .left-col .post-author span a:hover {
+            color: #f6a623; }
       #content .container .left-col .post-author img {
         width: 50px;
         height: 50px;
@@ -251,7 +276,7 @@ body {
         -webkit-user-select: text; }
     #content .container .left-col .bottom-acts {
       display: flex;
-      margin-top: 10px; }
+      margin-top: 15px; }
       #content .container .left-col .bottom-acts .social-acts {
         align-items: center;
         display: flex; }
@@ -293,8 +318,14 @@ body {
         margin-left: auto;
         align-items: center; }
         #content .container .left-col .bottom-acts .tags h4 {
-          font-weight: 400;
+          font-weight: 500;
+          font-size: 18px;
+          margin-left: 5px;
           color: rgba(34, 46, 80, 0.5); }
+          #content .container .left-col .bottom-acts .tags h4 a {
+            color: rgba(34, 46, 80, 0.5); }
+            #content .container .left-col .bottom-acts .tags h4 a:hover {
+              color: #f6a623; }
   #content .container .right-col {
     background-color: rgba(10, 95, 112, 0.15);
     border-radius: 10px;
@@ -317,6 +348,7 @@ body {
       padding: 0; }
       #content .container .right-col .threads p {
         padding: 0 0 10px 0;
+        text-transform: uppercase;
         font-weight: 500; }
       #content .container .right-col .threads li {
         margin: 0 -10px;

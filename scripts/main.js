@@ -19,14 +19,22 @@ $(document).ready(function(){
         scrollPos = st;
     });
 
+    $('#header-title').hover(function(){
+        $('#header-title path').toggleClass('onHoverStr');
+        $('#header-title rect').toggleClass('onHover');
+        $('#header-title path').css('stroke','0');
+    })
+
     //user menu
     var CursorAbove = false;
-    $('.user-profile-to-open-menu').hover(function(e){
-        var pos = $(this).position();
-        $('.user-menu').show().css('top', pos.top + 41).css('left', pos.left);
-    })
-    $('.user-menu').mouseleave(function(){
-            $(this).hide();
+    $('.btn-open').click(function(e){
+        var pos = $('.pos-out').position();
+        $(this).toggleClass('clicked');
+        $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 41).css('left', pos.left);
+    });
+    $(window).scroll(function(){
+        $('.user-menu').removeClass('toggle-display');
+        $('.btn-open').removeClass('clicked');
     });
 
     //футер
