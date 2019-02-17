@@ -31,8 +31,16 @@ $(document).ready(function(){
         var pos = $(this).position();
         $('.btn-open').toggleClass('clicked');
         $(this).toggleClass('pos-out-clicked');
-        $width = $(this).width() + 14;
-        $('.user-menu').css('width',$width).toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5);
+        if($(window).width()>=630){
+            $width = $(this).width() + 14;
+            $('.user-menu').css('width',$width);
+            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5);
+        }
+        else{
+            $width = $(window).width();
+            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', 0).css('width',$width).css('border-radius',0);
+        }
+
     });
     $(window).scroll(function(){
         $('.pos-out-content').removeClass('pos-out-clicked');
@@ -57,7 +65,9 @@ $(document).ready(function(){
         })
     });
 
-
+    $('#login-popup form input[name="login"]').change(function(){
+        $('#login-popup form .passv-tip').css('display','none');
+    });
 
     $('.login-popup-close').click(function(){ 
         $(this).parent().fadeOut('300');

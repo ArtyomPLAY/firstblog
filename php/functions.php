@@ -67,4 +67,22 @@ function sidebar_drawer(){ ?>
                     <li>IT</li>
                     <li>Social</li>
                 </ul>
-<? } ?>
+<? }
+
+function loginpopup_drawer(){ ?>
+    <link rel="stylesheet" href="/css/main.css">
+<div id="login-wrap" style="display: none"></div>
+<?php require "php/auth/signup.php"; ?>
+    <div id="login-popup" style="display: none;">
+        <button class="login-popup-close" tabindex="5">x</button>
+        <form action="<?php echo $path ?>login.php"  method="post">
+            <h3>Log in</h3>
+            <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
+            <input type="password" placeholder="password"
+            tabindex="2" required name="password" readonly>
+            <p class="passv-tip"></p>
+            <input type="submit" value="Log in" tabindex="3" name="do_login">
+            <p><a tabindex="4" class="switch-tab">or sign up</a></p>
+        </form>
+    </div>
+<?}?>

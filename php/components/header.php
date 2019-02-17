@@ -1,4 +1,6 @@
-
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
+$path = 'php/auth/';
+?>
 <div class="header">
         <div class="container">
             <a href="index.php" id="header-title"><svg viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,5 +27,6 @@
                 <li><button>Login</button></li>
                 <?php endif ?>
             </ul>
+            <? if(!isset($_SESSION['logged_user'])) loginpopup_drawer(); ?>
         </div>
     </div>

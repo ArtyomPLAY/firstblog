@@ -14,7 +14,6 @@
 
 <body>
 
-    <?php include 'php/auth/login.php';?>
     <?php include 'php/components/header.php';?>
 
     <?php include 'php/components/content.php';?>
@@ -23,6 +22,7 @@
 
     <script src="libs/jquery-3.3.1.min.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/ajax.js"></script>
 
 </body>
 

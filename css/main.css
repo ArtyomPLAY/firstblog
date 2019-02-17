@@ -516,7 +516,9 @@ body {
         font-weight: 500;
         width: 80px;
         text-decoration: none;
+        text-transform: lowercase;
         color: #007991;
+        letter-spacing: 0;
         padding: 5px 0 5px 0;
         border-radius: 20px;
         text-align: center;
@@ -643,6 +645,8 @@ body {
       padding: 0; }
       .header .container #header-nav li:first-of-type {
         padding: 0; }
+      .header .container #header-nav .user-menu {
+        width: 100%; }
 
   #footer .container {
     display: flex;
