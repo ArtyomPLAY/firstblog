@@ -22,9 +22,9 @@ function post_drawer($post,$user){ ?>
                 <div class="bottom-acts">
                     <div class="social-acts">
                         <div class="social-btn">
-                            <svg class="like" viewBox="0 0 28 26"  xmlns="http://www.w3.org/2000/svg">
-                            <path d="M26.1356 5.57005C23.9645 -1.44319 16.2583 0.93319 14.1162 4.00875C11.9741 0.93319 4.03044 -1.44282 1.85928 5.57042C-0.997116 14.7971 14.1162 24 14.1162 24C14.1162 24 28.992 14.7967 26.1356 5.57005Z"/>
-                            </svg>
+                                <svg class="like" viewBox="0 0 28 26"  xmlns="http://www.w3.org/2000/svg">
+                                <path d="M26.1356 5.57005C23.9645 -1.44319 16.2583 0.93319 14.1162 4.00875C11.9741 0.93319 4.03044 -1.44282 1.85928 5.57042C-0.997116 14.7971 14.1162 24 14.1162 24C14.1162 24 28.992 14.7967 26.1356 5.57005Z"/>
+                                </svg>
                             <? if($post->likes!=0) echo '<p>',$post->likes,'</p>';?>
                         </div>
                         <div class="social-btn">

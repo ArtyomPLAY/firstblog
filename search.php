@@ -4,12 +4,12 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 
 if(isset($_GET['tag'])){
-    $data = $_GET;
+    $data_get = $_GET;
 }
 else
     echo 'ERROR 404';
 
-$posts = R::findAll('posts','tags LIKE :tag',array(':tag'=> '%'.'#'.$data['tag'].'%'));
+$posts = R::findAll('posts','tags LIKE :tag',array(':tag'=> '%'.'#'.$data_get['tag'].'%'));
 ?>
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@ $posts = R::findAll('posts','tags LIKE :tag',array(':tag'=> '%'.'#'.$data['tag']
     <script src="libs/jquery-3.3.1.min.js"></script>
     <script src="scripts/main.js"></script>
     <link rel="icon" href="/content/ico.png">
-    <title><? echo '#', $data['tag'] ?></title>
+    <title><? echo '#', $data_get['tag'] ?></title>
 </head>
 
 <body>
@@ -30,6 +30,9 @@ $posts = R::findAll('posts','tags LIKE :tag',array(':tag'=> '%'.'#'.$data['tag']
     <div id="content">
         <div class="container">
             <div class="left-col">
+                <div class="post">
+                    <h4><? echo '#', $data_get['tag'] ?></h4>
+                </div>
                 <? foreach ($posts as $post) { 
                 $user = R::findOne('users', 'id = ?', array($post->authors_id));//поиск юзера по id ?
                     post_drawer($post,$user);
