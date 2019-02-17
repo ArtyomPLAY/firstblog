@@ -31,8 +31,8 @@ $(document).ready(function(){
         var pos = $(this).position();
         $('.btn-open').toggleClass('clicked');
         $(this).toggleClass('pos-out-clicked');
-
-        $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5);
+        $width = $(this).width() + 14;
+        $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5).css('width',$width);
     });
     $(window).scroll(function(){
         $('.pos-out-content').removeClass('pos-out-clicked');
