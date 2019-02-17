@@ -42,8 +42,9 @@ function post_drawer($post,$user){ ?>
 
                     </div>
                     <div class="tags">
-                        <h4>Tags: <? if(isset($post->tags)) {
-                            $tags = explode(", ",$post->tags);//разделение на массив тегов
+                        <h4><? if(array($post['tags'])!='0') {
+                            $tags = explode(", ",$post->tags);
+                            echo 'Tags: ';//разделение на массив тегов
                             for($i=0;$i<count($tags);$i++){
                                     echo '<a href="search.php','?tag=',substr($tags[$i],1),'">',$tags[$i],' ','</a>';
                                 }

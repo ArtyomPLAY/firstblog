@@ -10,7 +10,7 @@ if(isset($_GET['id'])){
 else
     echo 'ERROR 404';
 
-$posts = R::findAll('posts','authors_id=?',array($user->id));
+$posts = R::findAll('posts','authors_id=? ORDER BY id DESC',array($user->id));
 ?>
 <head>
     <meta charset="UTF-8">

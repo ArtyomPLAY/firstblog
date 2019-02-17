@@ -3,6 +3,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 
 if(isset($_SESSION['logged_user'])):
     $data = $_POST;
+    $tags_to_db = NULL;
+    if(isset($data['tags']))
+        $tags_to_db=mb_strtolower($data['tags']);
     if(isset($data['post_submit']))
     {
     $post = R::dispense('posts');
@@ -10,7 +13,7 @@ if(isset($_SESSION['logged_user'])):
     $post->content = $data['content'];
     $post->authors_id = $_SESSION['logged_user']->id;
     $post->pub_date = date('F j, H:i');
-    $post->tags = mb_strtolower($data['tags']);
+    $post->tags = $tags_to_db;
     $post->likes;
     $post->reposts;
     $post->comments;

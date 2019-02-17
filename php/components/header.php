@@ -12,11 +12,13 @@
                 <li><a href="mailto:artglz63@gmail.com">Contact</a></li>
                 <?php if(isset($_SESSION['logged_user'])): ?>
                 <li class="pos-out">
-                    <a class="name" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>"><?php echo $_SESSION['logged_user']->login?></a>
-                    <svg class="btn-open" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 5L0 0.384613H8L4 5Z" fill="white"/>
-                    </svg>
-                    <a href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>"><img src="<?php echo $_SESSION['logged_user']->avatar;?>" width="40px" height="40px"></a>
+                    <div class="pos-out-content">
+                        <a class="name" ><?php echo $_SESSION['logged_user']->login?></a>
+                        <svg class="btn-open" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 5L0 0.384613H8L4 5Z" fill="white"/>
+                        </svg>
+                        <a><img src="<?php echo $_SESSION['logged_user']->avatar;?>" width="40px" height="40px"></a>
+                    </div>
                 </li>
                 <? include $_SERVER['DOCUMENT_ROOT'] . "/php/components/user_menu.php";?>
                 <?php else: ?>

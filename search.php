@@ -9,7 +9,7 @@ if(isset($_GET['tag'])){
 else
     echo 'ERROR 404';
 
-$posts = R::findAll('posts','tags LIKE :tag',array(':tag'=> '%'.'#'.$data_get['tag'].'%'));
+$posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'.'#'.$data_get['tag'].'%'));
 ?>
 <head>
     <meta charset="UTF-8">

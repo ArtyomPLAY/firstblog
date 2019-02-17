@@ -23,7 +23,7 @@ if (isset($data['do_signup'])) {
         $user->login = $data['login'];
         $user->email = $data['email'];
         $user->password = password_hash($data['password'],PASSWORD_DEFAULT);
-        $user->avatar = '';
+        $user->avatar = 'content/none_avatar.png';
         $user->username = '';
         R::store($user);
         echo '<div style="color:green;">Registration successful.</div><hr>';

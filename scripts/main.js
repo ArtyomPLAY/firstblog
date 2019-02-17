@@ -27,12 +27,15 @@ $(document).ready(function(){
 
     //user menu
     var CursorAbove = false;
-    $('.btn-open').click(function(e){
-        var pos = $('.pos-out').position();
-        $(this).toggleClass('clicked');
-        $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 41).css('left', pos.left);
+    $('.pos-out-content').click(function(){
+        var pos = $(this).position();
+        $('.btn-open').toggleClass('clicked');
+        $(this).toggleClass('pos-out-clicked');
+
+        $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5);
     });
     $(window).scroll(function(){
+        $('.pos-out-content').removeClass('pos-out-clicked');
         $('.user-menu').removeClass('toggle-display');
         $('.btn-open').removeClass('clicked');
     });
