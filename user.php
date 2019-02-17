@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta name="theme-color" content="#007991">
 <html lang="en">
 <?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";

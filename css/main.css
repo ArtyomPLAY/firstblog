@@ -633,7 +633,9 @@ body {
 @media all and (min-width: 100px) and (max-width: 630px) {
   .header .container {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    max-width: 630px;
+    min-width: 100px; }
     .header .container #header-title {
       display: none; }
     .header .container #header-nav {

@@ -32,7 +32,7 @@ $(document).ready(function(){
         $('.btn-open').toggleClass('clicked');
         $(this).toggleClass('pos-out-clicked');
         $width = $(this).width() + 14;
-        $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5).css('width',$width);
+        $('.user-menu').css('width',$width).toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5);
     });
     $(window).scroll(function(){
         $('.pos-out-content').removeClass('pos-out-clicked');
