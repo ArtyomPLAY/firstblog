@@ -1,15 +1,5 @@
 $(document).ready(function(){
 
-    function funcSuccess(data){
-        $('#login-popup form .passv-tip').html(data).show();
-
-
-    }
-
-    function progress(){
-
-    }
-
     $('#login-popup form input[name="do_login"]').click(function(){
         var login = $('#login-popup input[name="login"]').val();
         var password = $('#login-popup input[name="password"]').val();
@@ -18,12 +8,38 @@ $(document).ready(function(){
             type: "POST",
             data: ({login: login, password: password}),
             dataType: "html",
-            beforeSend: progress,
-            success: funcSuccess
+            beforeSend:     function progress(){},
+            success:     function funcSuccess(data){
+                if(data == 'success'){
+                    location.reload();
+                }
+                else
+                    $('#login-popup form .passv-tip').html(data).show();
+            }        
         });
         event.preventDefault();
         
     });
+/*
+    $('.post .like').click(function(){
+        $.ajax({
+            url: "/php/auth/login.php",
+            type: "POST",
+            data: ({post_id: $(this).data('id')}),
+            dataType: "html",
+            beforeSend:     function progress(){},
+            success:     function funcSuccess(data){
+                if(typeof(data) == 'number'){
+                    location.reload();
+                }
+                else
+                    $('#login-popup form .passv-tip').html(data).show();
+            }        
+        });
+        });
+    });
+
+*/
 
     /*$('#signup-popup input[type="submit"]').click(function(){
         if($(this).prev().css('display')=='block'){

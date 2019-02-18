@@ -22,7 +22,7 @@ if(!isset($_SESSION['logged_user'])){
 
             if(password_verify($data['password'], $user->password)){
                 //пароль введен правильно, авторизация
-                echo '<div style="color:green;">Log in successful.</div><hr>';
+                echo 'success';
                 $_SESSION['logged_user'] = $user;
                 //header("Refresh: 0");
                 header("Refresh: 0");
@@ -37,4 +37,11 @@ if(!isset($_SESSION['logged_user'])){
         }
     }
 }
+/*else{
+
+    if(isset($data['post_id'])){
+
+    }
+
+}*/
 ?>
