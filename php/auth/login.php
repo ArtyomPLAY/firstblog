@@ -39,6 +39,7 @@ if(!isset($_SESSION['logged_user'])){
 }
 
 if(isset($data['post_id'])){
+    if(isset($_SESSION['logged_user'])):
     $post = R::findOne('posts','id = ?', array($data['post_id']));
     $liked = R::findOne('actions','user_id = :user_id AND post_id = :post_id AND action_type = "1"',array(':user_id'=>$_SESSION['logged_user']->id,':post_id'=>$post->id));
     if(empty($liked)){
@@ -59,5 +60,6 @@ if(isset($data['post_id'])){
         echo 'unliked';
         
     }
+    endif;
 }
 ?>

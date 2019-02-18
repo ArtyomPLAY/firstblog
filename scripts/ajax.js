@@ -29,8 +29,9 @@ $(document).ready(function(){
             dataType: "html",
             beforeSend: function progress(){},
             success: function funcSuccess(data){
-                console.log(data);
+                if(data== 'liked' || data == "unliked"){
                 location.reload();
+            }
             }        
         });
     });
