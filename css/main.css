@@ -300,8 +300,10 @@ body {
             stroke-width: 2.4px;
             fill: #ffffff00; }
             #content .container .left-col .bottom-acts .social-acts .social-btn .like path:hover {
-              fill: #EB5757;
-              stroke: #EB5757; }
+              stroke: #007991; }
+          #content .container .left-col .bottom-acts .social-acts .social-btn .liked {
+            fill: #EB5757 !important;
+            stroke: #EB5757 !important; }
           #content .container .left-col .bottom-acts .social-acts .social-btn .repost path {
             fill: rgba(34, 46, 80, 0.5); }
             #content .container .left-col .bottom-acts .social-acts .social-btn .repost path:hover {
@@ -627,6 +629,33 @@ body {
     width: 30%;
     height: 30%; }
 
+#error-page {
+  background-color: #007991;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle; }
+  #error-page .content {
+    display: flex;
+    margin: auto; }
+    #error-page .content .error-text {
+      vertical-align: middle;
+      margin: auto; }
+      #error-page .content .error-text h4 {
+        font-size: 48px;
+        color: #fff; }
+      #error-page .content .error-text h2 {
+        color: #fff;
+        font-weight: 500; }
+    #error-page .content p {
+      font-size: 65px;
+      color: #fff;
+      margin-right: 5px; }
+
 @media all and (min-width: 100px) and (max-width: 1000px) {
   #content .container .right-col {
     display: none !important; }
@@ -646,6 +675,10 @@ body {
         padding: 0; }
       .header .container #header-nav .user-menu {
         width: 100%; }
+        .header .container #header-nav .user-menu li {
+          width: 100%; }
+        .header .container #header-nav .user-menu a {
+          width: 100%; }
 
   #footer .container {
     display: flex;

@@ -1,7 +1,13 @@
 <?php 
+//обращение по draw::$func
+class draw{
+
 //отрисовка поста
-function post_drawer($post,$user){ ?>
+public static function post($post,$user){ ?>
     <div class="post">
+                <?
+                    $liked = R::findOne('actions','user_id = :user_id AND post_id = :post_id AND action_type = "1"',array(':user_id'=>$_SESSION['logged_user']->id,':post_id'=>$post->id));
+                ?>
                 <div class="post-author">
                     <a href="user.php<?echo '?id=',$user->id?>">
                         <img src="<?php if($user->avatar) echo $user->avatar; else echo 'content/none_avatar.png'; ?>" alt="Author's avatar">
@@ -23,7 +29,7 @@ function post_drawer($post,$user){ ?>
                     <div class="social-acts">
                         <div class="social-btn">
                                 <svg class="like" data-id="<?echo $post->id?>" viewBox="0 0 28 26"  xmlns="http://www.w3.org/2000/svg">
-                                <path d="M26.1356 5.57005C23.9645 -1.44319 16.2583 0.93319 14.1162 4.00875C11.9741 0.93319 4.03044 -1.44282 1.85928 5.57042C-0.997116 14.7971 14.1162 24 14.1162 24C14.1162 24 28.992 14.7967 26.1356 5.57005Z"/>
+                                <path class="<? if($liked) echo 'liked';?>"d="M26.1356 5.57005C23.9645 -1.44319 16.2583 0.93319 14.1162 4.00875C11.9741 0.93319 4.03044 -1.44282 1.85928 5.57042C-0.997116 14.7971 14.1162 24 14.1162 24C14.1162 24 28.992 14.7967 26.1356 5.57005Z"/>
                                 </svg>
                             <? if($post->likes!=0) echo '<p>',$post->likes,'</p>';?>
                         </div>
@@ -42,7 +48,7 @@ function post_drawer($post,$user){ ?>
 
                     </div>
                     <div class="tags">
-                        <h4><? if(array($post['tags'])!='0') {
+                        <h4><? if(!is_null($post->tags)) {
                             $tags = explode(", ",$post->tags);
                             echo 'Tags: ';//разделение на массив тегов
                             for($i=0;$i<count($tags);$i++){
@@ -53,9 +59,8 @@ function post_drawer($post,$user){ ?>
                 </div>
             </div> 
 <?}
-
 //отрисовка правого меню
-function sidebar_drawer(){ ?>
+public static function sidebar(){ ?>
                 <? if(isset($_SESSION['logged_user'])): 
                 include $_SERVER['DOCUMENT_ROOT'] . "/php/components/post_form.php";?>
                 <button class="postwr">Write Post</button>
@@ -68,21 +73,26 @@ function sidebar_drawer(){ ?>
                     <li>Social</li>
                 </ul>
 <? }
-
-function loginpopup_drawer(){ ?>
+//отрисовка логин окна
+public static function loginpopup(){ ?>
     <link rel="stylesheet" href="/css/main.css">
-<div id="login-wrap" style="display: none"></div>
-<?php require "php/auth/signup.php"; ?>
-    <div id="login-popup" style="display: none;">
-        <button class="login-popup-close" tabindex="5">x</button>
-        <form action="<?php echo $path ?>login.php"  method="post">
-            <h3>Log in</h3>
-            <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
-            <input type="password" placeholder="password"
-            tabindex="2" required name="password" readonly>
-            <p class="passv-tip"></p>
-            <input type="submit" value="Log in" tabindex="3" name="do_login">
-            <p><a tabindex="4" class="switch-tab">or sign up</a></p>
-        </form>
-    </div>
-<?}?>
+    <div id="login-wrap" style="display: none"></div>
+    <?php require "php/auth/signup.php"; ?>
+        <div id="login-popup" style="display: none;">
+            <button class="login-popup-close" tabindex="5">x</button>
+            <form action="<?php echo $path ?>login.php"  method="post">
+                <h3>Log in</h3>
+                <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
+                <input type="password" placeholder="password"
+                tabindex="2" required name="password" readonly>
+                <p class="passv-tip"></p>
+                <input type="submit" value="Log in" tabindex="3" name="do_login">
+                <p><a tabindex="4" class="switch-tab">or sign up</a></p>
+            </form>
+        </div>
+<?}
+
+
+
+} //окончание класса
+?>

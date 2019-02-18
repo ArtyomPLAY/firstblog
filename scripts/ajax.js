@@ -20,26 +20,23 @@ $(document).ready(function(){
         event.preventDefault();
         
     });
-/*
+
     $('.post .like').click(function(){
         $.ajax({
             url: "/php/auth/login.php",
             type: "POST",
             data: ({post_id: $(this).data('id')}),
             dataType: "html",
-            beforeSend:     function progress(){},
-            success:     function funcSuccess(data){
-                if(typeof(data) == 'number'){
-                    location.reload();
-                }
-                else
-                    $('#login-popup form .passv-tip').html(data).show();
+            beforeSend: function progress(){},
+            success: function funcSuccess(data){
+                console.log(data);
+                location.reload();
             }        
-        });
         });
     });
 
-*/
+
+
 
     /*$('#signup-popup input[type="submit"]').click(function(){
         if($(this).prev().css('display')=='block'){

@@ -27,6 +27,6 @@ $path = 'php/auth/';
                 <li><button>Login</button></li>
                 <?php endif ?>
             </ul>
-            <? if(!isset($_SESSION['logged_user'])) loginpopup_drawer(); ?>
+            <? if(!isset($_SESSION['logged_user'])) draw::loginpopup(); ?>
         </div>
     </div>

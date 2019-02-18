@@ -18,8 +18,6 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
-    <script src="libs/jquery-3.3.1.min.js"></script>
-    <script src="scripts/main.js"></script>
     <link rel="icon" href="/content/ico.png">
     <title><? echo '#', $data_get['tag'] ?></title>
 </head>
@@ -36,17 +34,21 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
                 </div>
                 <? foreach ($posts as $post) { 
                 $user = R::findOne('users', 'id = ?', array($post->authors_id));//поиск юзера по id ?
-                    post_drawer($post,$user);
+                    draw::post($post,$user);
                 } ?>
             </div>
             <div class="right-col">
                 <div class="right-col-content">
-                    <? sidebar_drawer(); ?>
+                    <? draw::sidebar(); ?>
                 </div>
             </div>  
         </div>
     </div>
     <?php include 'php/components/footer.php'; ?>
+    
+    <script src="libs/jquery-3.3.1.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/ajax.js"></script>
 
 </body>
 
