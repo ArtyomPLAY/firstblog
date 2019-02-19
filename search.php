@@ -23,7 +23,7 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
 </head>
 
 <body>
-    <?php include 'php/auth/login.php';?>
+
     <?php include 'php/components/header.php'; ?>
 
     <div id="content">
@@ -33,8 +33,7 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
                     <h4><? echo '#', $data_get['tag'] ?></h4>
                 </div>
                 <? foreach ($posts as $post) { 
-                $user = R::findOne('users', 'id = ?', array($post->authors_id));//поиск юзера по id ?
-                    draw::post($post,$user);
+                    draw::post($post);
                 } ?>
             </div>
             <div class="right-col">

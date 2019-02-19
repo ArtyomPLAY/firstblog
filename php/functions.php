@@ -3,9 +3,10 @@
 class draw{
 
 //отрисовка поста
-public static function post($post,$user){ ?>
-    <div class="post">
+public static function post($post){ ?>
+    <div class="post" data-id="<?echo $post->id?>">
                 <?
+                    $user =  R::findOne('users', 'id = ?', array($post->authors_id));//поиск юзера по id ?
                     $liked = R::findOne('actions','user_id = :user_id AND post_id = :post_id AND action_type = "1"',array(':user_id'=>$_SESSION['logged_user']->id,':post_id'=>$post->id));
                 ?>
                 <div class="post-author">
@@ -91,8 +92,19 @@ public static function loginpopup(){ ?>
             </form>
         </div>
 <?}
+//отрисовка юзер меню
+public static function user_menu(){ ?>
+    <span rel="stylesheet" href="/css/main.css">
+    <div class="user-menu">
+    <ul>
+        <li tabindex="1"><a href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>">Profile</a></li>
+        <li tabindex="2"><a href="">Statistics</a></li>
+        <li tabindex="3"><a href="">Settings</a></li>
+        <li tabindex="4"><a href="php\auth\logout.php">Log out</a></li>
+    </ul>
+    </span>
+<?}
 
 
-
-} //окончание класса
-?>
+} //окончание класса draw
+?> 

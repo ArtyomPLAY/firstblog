@@ -22,6 +22,7 @@ $(document).ready(function(){
     });
 
     $('.post .like').click(function(){
+        var id = $(this).data('id');
         $.ajax({
             url: "/php/auth/login.php",
             type: "POST",
@@ -29,9 +30,17 @@ $(document).ready(function(){
             dataType: "html",
             beforeSend: function progress(){},
             success: function funcSuccess(data){
-                if(data== 'liked' || data == "unliked"){
-                location.reload();
-            }
+                if(data == 1){
+                    var likes = $('.post[data-id="'+id+'"] .like').next('p').text();
+                    $('.post[data-id="'+id+'"] .like path').addClass('liked');
+                    $('.post[data-id="'+id+'"] .like').next('p').text(parseInt(likes) + 1);
+                }
+                if(data == 0){
+                    var likes = $('.post[data-id="'+id+'"] .like').next('p').text();
+                    $('.post[data-id="'+id+'"] .like path').removeClass('liked');
+                    $('.post[data-id="'+id+'"] .like').next('p').text(parseInt(likes) - 1);
+                }
+
             }        
         });
     });

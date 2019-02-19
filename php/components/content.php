@@ -9,8 +9,7 @@ $posts = R::findAll('posts','ORDER BY id DESC');
         <div class="container">
             <div class="left-col">
                 <?php foreach ($posts as $post) { 
-                $user = R::findOne('users', 'id = ?', array($post->authors_id));//поиск юзера по id ?
-                    draw::post($post,$user);
+                    draw::post($post);
                 } ?>
             </div>    
             <div class="right-col">

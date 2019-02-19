@@ -34,7 +34,7 @@ $(document).ready(function(){
         if($(window).width()>=630){
             $width = $(this).width() + 14;
             $('.user-menu').css('width',$width);
-            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', pos.left - 5);
+            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 59).css('left', pos.left - 7);
         }
         else{
             $width = $(window).width();
@@ -42,6 +42,11 @@ $(document).ready(function(){
         }
 
     });
+
+    $('.user-menu ul li').hover(function(){
+        $(this).children('a').toggleClass('onhover');
+    });
+
     $(window).scroll(function(){
         $('.pos-out-content').removeClass('pos-out-clicked');
         $('.user-menu').removeClass('toggle-display');

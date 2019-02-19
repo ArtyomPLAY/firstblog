@@ -91,16 +91,16 @@ body {
       -webkit-transition: 0.3s all; }
       .header .container a:hover {
         cursor: pointer;
-        color: #333;
+        color: #f6a623;
         transition: 0.3s all;
         -webkit-transition: 0.3s all; }
     .header .container #header-title {
       align-content: flex-start; }
       .header .container #header-title .onHover {
-        fill: #333;
-        stroke: #333; }
+        fill: #f6a623;
+        stroke: #f6a623; }
       .header .container #header-title .onHoverStr {
-        fill: #333; }
+        fill: #f6a623; }
       .header .container #header-title svg {
         width: 47px !important;
         height: 35px !important; }
@@ -116,14 +116,14 @@ body {
       .header .container #header-nav .toggle-display {
         display: block; }
       .header .container #header-nav .pos-out .pos-out-clicked {
-        background-color: rgba(0, 0, 0, 0.1); }
+        background-color: #007087; }
       .header .container #header-nav .pos-out .pos-out-content {
         display: flex;
         flex-direction: row;
         align-content: center;
         align-items: center;
-        padding: 7px 0px 7px 7px;
-        margin-left: -5px; }
+        padding: 7px;
+        margin-left: -7px; }
         .header .container #header-nav .pos-out .pos-out-content:hover {
           background-color: rgba(0, 0, 0, 0.04);
           cursor: pointer; }
@@ -148,7 +148,7 @@ body {
           -webkit-transition: 0.3s all; }
     .header .container .user-menu {
       position: fixed;
-      background-color: #fff;
+      background-color: #007087;
       display: none;
       border-radius: 0 0 10px 10px;
       width: 169px;
@@ -167,10 +167,14 @@ body {
           .header .container .user-menu ul li:last-of-type {
             border-radius: 0 0 10px 10px; }
           .header .container .user-menu ul li:hover, .header .container .user-menu ul li::selection, .header .container .user-menu ul li:focus {
-            background-color: rgba(0, 121, 145, 0.18);
-            cursor: pointer; }
+            background-color: #00778e;
+            cursor: pointer;
+            color: #f6a623; }
+          .header .container .user-menu ul li .onhover {
+            color: #f6a623 !important; }
           .header .container .user-menu ul li a {
-            color: #222E50 !important; }
+            color: #fff !important;
+            width: 100%; }
 
 .sticky-footer {
   bottom: 0;
@@ -673,6 +677,8 @@ body {
       justify-self: flex-end; }
       .header .container #header-nav li:first-of-type {
         padding: 0; }
+      .header .container #header-nav .pos-out-content {
+        margin-right: -7px; }
       .header .container #header-nav .user-menu {
         width: 100%; }
         .header .container #header-nav .user-menu li {

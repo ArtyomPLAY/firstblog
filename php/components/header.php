@@ -22,7 +22,7 @@ $path = 'php/auth/';
                         <a><img src="<?php echo $_SESSION['logged_user']->avatar;?>" width="40px" height="40px"></a>
                     </div>
                 </li>
-                <? include $_SERVER['DOCUMENT_ROOT'] . "/php/components/user_menu.php";?>
+                <? draw::user_menu();?>
                 <?php else: ?>
                 <li><button>Login</button></li>
                 <?php endif ?>

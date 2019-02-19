@@ -51,14 +51,13 @@ if(isset($data['post_id'])){
             $query->action_type = 1; //1 - like ; 11 - repost
             $query->action_date = date('F j, H:i');
         R::store($query);
-        echo 'liked';
+        echo 1;
     }
     else{
         R::exec("DELETE FROM actions WHERE id = '$liked->id'");
         $post->likes--;
         R::store($post);
-        echo 'unliked';
-        
+        echo 0;
     }
     endif;
 }

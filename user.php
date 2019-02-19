@@ -34,14 +34,12 @@ else{
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/main.css">
-        <script src="libs/jquery-3.3.1.min.js"></script>
-        <script src="scripts/main.js"></script>
         <link rel="icon" href="/content/ico.png">
         <title><? echo '@',$user->login,' - ',$user->username;?></title>
     </head>
 
     <body>
-        <?php include 'php/auth/login.php';?>
+
         <?php include 'php/components/header.php'; ?>
 
         <div id="content">
@@ -65,7 +63,7 @@ else{
                     </div>
                     <div class="posts">
                             <? foreach($posts as $post) {
-                                draw::post($post,$user);
+                                draw::post($post);
                             } ?>
                     </div>
                 </div>
