@@ -3,6 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 
 if(isset($_SESSION['logged_user'])):
     $data = $_POST;
+    $user = R::findOne('users','id = ?', array($_SESSION['logged_user']->id));
 
     if(isset($data['post_submit']))
     {
@@ -19,24 +20,8 @@ if(isset($_SESSION['logged_user'])):
     $post->reposts;
     $post->comments;
     R::store($post);
+    $user->posts_counter++;
+    R::store($user);
     header('Location: /');
     }
-
-
-    ?>
-    <link rel="stylesheet" href="/css/main.css">
-    <div id="post-form" style="display:none">
-        <div class="post-wrap"></div>
-        <form action="php/components/post_form.php" method="post">
-        <div class="top">    
-            <input type="text" name="title" placeholder="Title" required>
-            <button class="post-popup-close" tabindex="7">x</button>
-        </div>
-            <textarea name="content" cols="30" rows="20" placeholder="Say something:)" required></textarea>
-            <div class="down">
-                <input type="text" placeholder="Tags: #news, #games etc." name="tags">
-                <input type="submit" value="Post" name="post_submit" class="button">
-            </div>
-        </form>
-    </div>
-<? endif ?>
+endif ?>

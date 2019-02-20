@@ -14,7 +14,7 @@ $posts = R::findAll('posts','ORDER BY id DESC');
             </div>    
             <div class="right-col">
                 <div class="right-col-content">
-                    <? draw::sidebar(); ?>
+                    <? draw::side_bar(); ?>
                 </div>
             </div>    
         </div>

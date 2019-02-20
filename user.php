@@ -57,7 +57,7 @@ else{
                         <div class="user-stats">
                             <div class="stats-card">
                                 <h4>Written posts</h4>
-                                <h3><? echo count($posts);?></h3>
+                                <h3><? echo $user->posts_counter;?></h3>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ else{
                 </div>
                 <div class="right-col">
                     <div class="right-col-content">
-                        <? draw::sidebar(); ?>
+                        <? draw::side_bar(); ?>
                     </div>
                 </div>  
             </div>

@@ -232,6 +232,13 @@ body {
       padding: 20px;
       border-radius: 10px;
       background-color: rgba(34, 34, 34, 0.05); }
+      #content .container .left-col .post .hint {
+        background-color: #ffcaca;
+        color: #ff2020;
+        padding: 7px;
+        border-radius: 10px;
+        position: absolute;
+        box-shadow: 0 5px 10px rgba(34, 46, 80, 0.15); }
     #content .container .left-col .post-author {
       background-color: rgba(0, 121, 145, 0.15);
       border-radius: 10px 10px 0 0;
@@ -306,7 +313,8 @@ body {
             stroke-width: 2.4px;
             fill: #ffffff00; }
             #content .container .left-col .bottom-acts .social-acts .social-btn .like path:hover {
-              stroke: #007991; }
+              stroke: #EB5757;
+              fill: #eb575728 !important; }
           #content .container .left-col .bottom-acts .social-acts .social-btn .liked {
             fill: #EB5757 !important;
             stroke: #EB5757 !important; }
@@ -346,25 +354,39 @@ body {
       margin: 10px; }
       #content .container .right-col .right-col-content .postwr {
         background-color: #007991;
-        margin-bottom: 10px;
         color: #fff;
         width: 100%; }
         #content .container .right-col .right-col-content .postwr:hover {
           box-shadow: inset 0 -3px 0px rgba(255, 255, 255, 0.3), 0 5px 5px rgba(0, 78, 94, 0.15); }
     #content .container .right-col .threads {
-      text-align: center;
       padding: 0; }
       #content .container .right-col .threads p {
-        padding: 0 0 10px 0;
+        text-align: center;
+        font-weight: 500;
+        margin: 10px 0 10px 0;
         text-transform: uppercase;
-        font-weight: 500; }
+        letter-spacing: 0.1em; }
+      #content .container .right-col .threads a {
+        text-align: left;
+        font-weight: 400;
+        font-size: 14px;
+        color: rgba(34, 46, 80, 0.6);
+        width: 100% !important; }
+      #content .container .right-col .threads .posts_counter {
+        text-align: right;
+        font-weight: 400;
+        font-size: 14px;
+        color: rgba(34, 46, 80, 0.6);
+        width: 100% !important; }
       #content .container .right-col .threads li {
         margin: 0 -10px;
         list-style: none;
-        padding: 7px 0 7px;
-        background-color: rgba(9, 83, 98, 0.15); }
-        #content .container .right-col .threads li:first-of-type {
-          border-radius: 10px 10px 0 0; }
+        display: flex;
+        width: 100%;
+        padding: 7px 10px 7px 10px;
+        background-color: rgba(10, 79, 93, 0.18); }
+        #content .container .right-col .threads li:nth-child(even) {
+          background-color: rgba(8, 86, 102, 0.12); }
         #content .container .right-col .threads li:last-of-type {
           border-radius: 0 0 10px 10px;
           margin-bottom: -10px; }

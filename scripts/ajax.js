@@ -23,6 +23,7 @@ $(document).ready(function(){
 
     $('.post .like').click(function(){
         var id = $(this).data('id');
+        var pos = $(this).position();
         $.ajax({
             url: "/php/auth/login.php",
             type: "POST",
@@ -33,14 +34,25 @@ $(document).ready(function(){
                 if(data == 1){
                     var likes = $('.post[data-id="'+id+'"] .like').next('p').text();
                     $('.post[data-id="'+id+'"] .like path').addClass('liked');
-                    $('.post[data-id="'+id+'"] .like').next('p').text(parseInt(likes) + 1);
+                    if($('.post[data-id="'+id+'"] .like').next('p').text()!=0)
+                        $('.post[data-id="'+id+'"] .like').next('p').text(parseInt(likes) + 1);
+                    else
+                    $('.post[data-id="'+id+'"] .social-btn .like').parent().append('<p>'+'1'+'</p>')
                 }
-                if(data == 0){
+                else if(data == 2){
+
                     var likes = $('.post[data-id="'+id+'"] .like').next('p').text();
                     $('.post[data-id="'+id+'"] .like path').removeClass('liked');
-                    $('.post[data-id="'+id+'"] .like').next('p').text(parseInt(likes) - 1);
+                    if($('.post[data-id="'+id+'"] .like').next('p').text()>1)
+                        $('.post[data-id="'+id+'"] .like').next('p').text(parseInt(likes) - 1);
+                    else
+                    $('.post[data-id="'+id+'"] .like').next('p').remove();
                 }
-
+                else{
+                    console.log('cant'+id)
+                    $('.post[data-id="'+id+'"]').append('<span class="hint">'+data+'</span>');
+                    $('.hint').css('top', pos.top - 3).delay(4000).fadeOut(300);
+                }
             }        
         });
     });

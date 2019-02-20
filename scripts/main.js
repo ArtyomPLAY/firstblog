@@ -115,11 +115,18 @@ $(document).ready(function(){
     //пост форма
 
     $('.postwr').click(function(){
-        $('#post-form').css('display','block');
+        $('#post-form').fadeIn();
     });
 
     $('#post-form button').click(function(){
         $('#post-form').css('display','none');
+    });
+
+    //переход к посту из сайд бара меню
+    $('.threads li a').click(function(){
+        var idto = $(this).data('id');
+        console.log(idto);
+        $('html, body').animate({scrollTop: $('.post[data-id="'+idto+'"').offset().top-65},500);
     });
 
     

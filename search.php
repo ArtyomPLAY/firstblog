@@ -38,7 +38,7 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
             </div>
             <div class="right-col">
                 <div class="right-col-content">
-                    <? draw::sidebar(); ?>
+                    <? draw::side_bar(); ?>
                 </div>
             </div>  
         </div>
