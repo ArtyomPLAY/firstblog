@@ -162,6 +162,8 @@ body {
         flex-direction: column;
         text-decoration: none;
         justify-content: flex-start; }
+        .header .container .user-menu ul .postwr {
+          display: none; }
         .header .container .user-menu ul li {
           padding: 10px 20px 10px 20px !important; }
           .header .container .user-menu ul li:last-of-type {
@@ -670,6 +672,10 @@ body {
     display: flex;
     max-width: 630px;
     min-width: 100px; }
+    .header .container #login-popup, .header .container #signup-popup {
+      width: auto;
+      height: auto;
+      border-radius: 0; }
     .header .container #header-title {
       display: block; }
     .header .container #header-nav {
@@ -685,6 +691,13 @@ body {
           width: 100%; }
         .header .container #header-nav .user-menu a {
           width: 100%; }
+        .header .container #header-nav .user-menu .postwr {
+          display: block; }
+
+  #post-form form {
+    width: auto;
+    height: auto;
+    border-radius: 0px; }
 
   #footer .container {
     display: flex;

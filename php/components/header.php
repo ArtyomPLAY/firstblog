@@ -27,6 +27,6 @@ $path = 'php/auth/';
                 <li><button>Login</button></li>
                 <?php endif ?>
             </ul>
-            <? if(!isset($_SESSION['logged_user'])) draw::loginpopup(); ?>
+            <? if(!isset($_SESSION['logged_user'])) draw::loginpopup();include $_SERVER['DOCUMENT_ROOT'] . "/php/components/post_form.php";?>
         </div>
     </div>

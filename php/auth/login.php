@@ -22,10 +22,8 @@ if(!isset($_SESSION['logged_user'])){
 
             if(password_verify($data['password'], $user->password)){
                 //пароль введен правильно, авторизация
-                echo 'success';
                 $_SESSION['logged_user'] = $user;
-                //header("Refresh: 0");
-                header("Refresh: 0");
+                echo 1;
             }   
             else{
                 echo 'Password is wrong';
@@ -61,4 +59,5 @@ if(isset($data['post_id'])){
     }
     endif;
 }
+
 ?>

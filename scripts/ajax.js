@@ -10,7 +10,7 @@ $(document).ready(function(){
             dataType: "html",
             beforeSend:     function progress(){},
             success:     function funcSuccess(data){
-                if(data == 'success'){
+                if(data == 1){
                     location.reload();
                 }
                 else
@@ -45,6 +45,7 @@ $(document).ready(function(){
         });
     });
 
+    
 
 
 

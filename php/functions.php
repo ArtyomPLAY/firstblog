@@ -62,8 +62,7 @@ public static function post($post){ ?>
 <?}
 //отрисовка правого меню
 public static function sidebar(){ ?>
-                <? if(isset($_SESSION['logged_user'])): 
-                include $_SERVER['DOCUMENT_ROOT'] . "/php/components/post_form.php";?>
+                <? if(isset($_SESSION['logged_user'])):?>
                 <button class="postwr">Write Post</button>
                 <? endif ?>
                 <ul class="threads">
@@ -101,6 +100,7 @@ public static function user_menu(){ ?>
         <li tabindex="2"><a href="">Statistics</a></li>
         <li tabindex="3"><a href="">Settings</a></li>
         <li tabindex="4"><a href="php\auth\logout.php">Log out</a></li>
+        <li class="postwr" tabindex="5"><a href="#">Write post</a></li>
     </ul>
     </span>
 <?}
