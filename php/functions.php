@@ -68,11 +68,11 @@ public static function side_bar(){ ?>
                     $top_posts = R::findAll('posts','ORDER BY likes DESC LIMIT 10');
                 ?>
                 <ul class="threads">
-                    <p>🔥 Popular 🔥</p>
+                    <p class="thread_name">🔥 Popular 🔥</p>
                     <? foreach ($top_posts as $post) {?>
                         <li><a href="#" data-id="<? echo $post->id;?>"><? echo $post->title?></a></li>
                     <?}?>
-                    <p>😎 TOP users 😎</p>
+                    <p class="thread_name">😎 TOP users 😎</p>
                     <? $top_users = R::findAll('users','ORDER BY posts_counter DESC LIMIT 3');
                         foreach ($top_users as $user) {?>
                             <li><a href="user.php<?echo '?id=',$user->id?>"><? echo '@',$user->login?></a><span class="posts_counter"><? echo $user->posts_counter;?></span></li>
@@ -86,8 +86,8 @@ public static function signup_popup(){ $path = 'php/auth/';?>
     <button class="login-popup-close" tabindex="7">x</button>
     <form action="<?php echo $path ;?>signup.php"  method="post">
         <h3>Sign up</h3>
-        <input type="text" name="login" placeholder="login" required value="<?php echo @$data['login']?>" tabindex="1" readonly pattern="\D[^А-Яа-яЁё]+$"> 
-        <input type="email" name="email" placeholder="email" required value="<?php echo @$data['email']?>" tabindex="2" readonly>
+        <input type="text" name="login" placeholder="login" required tabindex="1" readonly pattern="\D[^А-Яа-яЁё]+$"> 
+        <input type="email" name="email" placeholder="email" required tabindex="2" readonly>
         <input type="password" name="password" placeholder="password" required tabindex="3" >
         <input type="password" name="password2" placeholder="confirm password" required tabindex="4" >
         <p class="passv-tip">Passwords do not match</p>
@@ -140,7 +140,7 @@ public static function post_form(){?>
             <input type="text" name="title" placeholder="Title" required>
             <button class="post-popup-close" tabindex="7">x</button>
         </div>
-            <textarea name="content" cols="30" rows="20" placeholder="Say something:)" required></textarea>
+            <textarea name="content" cols="30" rows="14" placeholder="Say something:)" required></textarea>
             <div class="down">
                 <input type="text" placeholder="Tags: #news, #games etc." name="tags">
                 <input type="submit" value="Post" name="post_submit" class="button">

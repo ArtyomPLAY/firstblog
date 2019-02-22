@@ -5,17 +5,19 @@ $posts = R::findAll('posts','ORDER BY id DESC');
 ?>
 
 
-<div id="content">
-        <div class="container">
-            <div class="left-col">
+<div class="container">
+    <section id="content">
+        <div class="row">
+            <div class="col left-col">
                 <?php foreach ($posts as $post) { 
                     draw::post($post);
                 } ?>
             </div>    
-            <div class="right-col">
+            <div class="col-md-3 right-col">
                 <div class="right-col-content">
                     <? draw::side_bar(); ?>
                 </div>
             </div>    
         </div>
-    </div>           
+    </section>
+</div>           

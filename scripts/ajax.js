@@ -49,21 +49,12 @@ $(document).ready(function(){
                     $('.post[data-id="'+id+'"] .like').next('p').remove();
                 }
                 else{
-                    console.log('cant'+id)
                     $('.post[data-id="'+id+'"]').append('<span class="hint">'+data+'</span>');
-                    $('.hint').css('top', pos.top - 3).delay(4000).fadeOut(300);
+                    $('.hint').css('top', pos.top -75).delay(4000).fadeOut(300);
                 }
             }        
         });
     });
-
-    
-
-
-
-    /*$('#signup-popup input[type="submit"]').click(function(){
-        if($(this).prev().css('display')=='block'){
-            event.preventDefault();*/
 
 
 });

@@ -17,6 +17,7 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="/content/ico.png">
     <title><? echo '#', $data_get['tag'] ?></title>
@@ -26,7 +27,7 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
 
     <?php include 'php/components/header.php'; ?>
 
-    <div id="content">
+    <!-- <div id="content">
         <div class="container">
             <div class="left-col">
                 <div class="post">
@@ -42,7 +43,29 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
                 </div>
             </div>  
         </div>
-    </div>
+    </div> -->
+
+<div class="container">
+    <section id="content">
+        <div class="row">
+            <div class="col left-col">
+                <div class="post">
+                    <h4><? echo '#', $data_get['tag'], ' - ',count($posts),' ',count($posts) == 1 ? 'post' : 'posts' ?></h4>
+                </div>
+                <?php foreach ($posts as $post) { 
+                    draw::post($post);
+                } ?>
+            </div>    
+            <div class="col-md-3 right-col">
+                <div class="right-col-content">
+                    <? draw::side_bar(); ?>
+                </div>
+            </div>    
+        </div>
+    <section id="content">
+ </div> 
+           
+
     <?php include 'php/components/footer.php'; ?>
     
     <script src="libs/jquery-3.3.1.min.js"></script>

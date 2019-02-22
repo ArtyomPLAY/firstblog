@@ -34,11 +34,11 @@ $(document).ready(function(){
         if($(window).width()>=630){
             $width = $(this).width() + 14;
             $('.user-menu').css('width',$width);
-            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 59).css('left', pos.left - 7);
+            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 57).css('left', pos.left - 7);
         }
         else{
             $width = $(window).width();
-            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 60).css('left', 0).css('width',$width).css('border-radius',0);
+            $('.user-menu').toggleClass('toggle-display').css('top', pos.top + 57).css('left', 0).css('width',$width).css('border-radius',0);
         }
 
     });
@@ -126,7 +126,7 @@ $(document).ready(function(){
     $('.threads li a').click(function(){
         var idto = $(this).data('id');
         console.log(idto);
-        $('html, body').animate({scrollTop: $('.post[data-id="'+idto+'"').offset().top-65},500);
+        $('html, body').animate({scrollTop: $('.post[data-id="'+idto+'"').offset().top-75},500);
     });
 
     
