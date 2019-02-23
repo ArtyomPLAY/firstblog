@@ -62,13 +62,13 @@ public static function post($post){ ?>
 <?}
 //отрисовка правого меню
 public static function side_bar(){ ?>
-                <? if(isset($_SESSION['logged_user'])):?>
-                <button class="postwr">Write Post</button>
-                <? endif;
-                    $top_posts = R::findAll('posts','ORDER BY likes DESC LIMIT 10');
+                <?$top_posts = R::findAll('posts','ORDER BY likes DESC LIMIT 10');
                 ?>
+                <div class="popular-opener">
+                    <p class="thread_name thread-name-first">🔥 Popular 🔥</p>
+                    <span>></span>
+                </div>
                 <ul class="threads">
-                    <p class="thread_name">🔥 Popular 🔥</p>
                     <? foreach ($top_posts as $post) {?>
                         <li><a href="#" data-id="<? echo $post->id;?>"><? echo $post->title?></a></li>
                     <?}?>
@@ -119,32 +119,54 @@ public static function login_popup(){ ?>
 
 //отрисовка юзер меню
 public static function user_menu(){ ?>
-    <span rel="stylesheet" href="/css/main.css">
-    <div class="user-menu">
-    <ul>
-        <li tabindex="1"><a href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>">Profile</a></li>
-        <li tabindex="2"><a href="">Statistics</a></li>
-        <li tabindex="3"><a href="">Settings</a></li>
-        <li tabindex="4"><a href="php\auth\logout.php">Log out</a></li>
-        <li class="postwr" tabindex="5"><a href="#">Write post</a></li>
-    </ul>
-    </span>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>">Profile</a>
+        <a class="dropdown-item" href="">Statistics</a>
+        <a class="dropdown-item" href="">Settings</a>
+        <a class="dropdown-item postwr" style="cursor: pointer">Write post</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="php\auth\logout.php">Log out</a>
+
+    </div>
 <?}
+
+public static function user_menu_mobile(){ ?>
+        <li class="nav-item"><a class="nav-link" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Statistics</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Settings</a></li>
+        <li class="nav-item"><a class="nav-link postwr" style="cursor: pointer">Write post</a></li>
+        <li class="nav-item"><a class="nav-link" href="php\auth\logout.php">Log out</a></li>
+<?}
+
 //отрисовка пост форм
 public static function post_form(){?>
-    <link rel="stylesheet" href="/css/main.css">
-    <div id="post-form" style="display:none;height: 100%;">
-        <div class="post-wrap"></div>
+    <div class="post post-form">
         <form action="php/components/post_form.php" method="post">
-        <div class="top">    
-            <input type="text" name="title" placeholder="Title" required>
-            <button class="post-popup-close" tabindex="7">x</button>
-        </div>
-            <textarea name="content" cols="30" rows="14" placeholder="Say something:)" required></textarea>
-            <div class="down">
-                <input type="text" placeholder="Tags: #news, #games etc." name="tags">
-                <input type="submit" value="Post" name="post_submit" class="button">
+
+            <div class="input-group mb-2 default">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Title</span>
+                </div>
+                <input type="text" name="title" class="form-control" placeholder="Name it somehow" aria-label="Name it somehow" aria-describedby="basic-addon1"
+                required>
             </div>
+
+            <div class="input-group mb-2">
+                <textarea name="content" class="form-control" aria-describedby="basic-addon2" placeholder="What happening?" required></textarea>
+            </div>
+
+            <div class="row default" style="margin-right: -15px;margin-left: -15px;">
+                <div class="col input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Tags</span>
+                    </div>
+                    <input type="text" name="tags" class="form-control" placeholder="#news, #games, #angular" aria-label="#news, #games, #angular" aria-describedby="basic-addon1">
+                </div>
+                <div class="col-3" style="padding-left: 0;margin-left: -5px;">
+                    <button type="submit" name="post_submit" class="btn btn-primary btn-block">Post it</button>
+                </div>
+            </div>
+
         </form>
     </div>
 <?}

@@ -8,12 +8,13 @@ $posts = R::findAll('posts','ORDER BY id DESC');
 <div class="container">
     <section id="content">
         <div class="row">
-            <div class="col left-col">
+            <div class="col order-2 order-md-1 left-col">
+            <? draw::post_form()?>
                 <?php foreach ($posts as $post) { 
                     draw::post($post);
                 } ?>
             </div>    
-            <div class="col-md-3 right-col">
+            <div class="col-12 col-md-3 order-1 order-md-2 right-col">
                 <div class="right-col-content">
                     <? draw::side_bar(); ?>
                 </div>
