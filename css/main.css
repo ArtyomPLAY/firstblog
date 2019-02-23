@@ -36,7 +36,8 @@ code {
   margin: 0 auto; }
 
 body {
-  max-width: 100%;
+  max-width: 100% !important;
+  overflow-x: hidden;
   margin-top: 72px;
   background-color: #fff; }
 

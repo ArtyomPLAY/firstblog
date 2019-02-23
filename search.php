@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<meta name="theme-color" content="#007991">
+<meta name="theme-color" content="#ffffff">
 <html lang="en">
 <?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
@@ -25,24 +25,6 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
 <body>
 
     <?php include 'php/components/header.php'; ?>
-
-    <!-- <div id="content">
-        <div class="container">
-            <div class="left-col">
-                <div class="post">
-                    <h4><? echo '#', $data_get['tag'] ?></h4>
-                </div>
-                <? foreach ($posts as $post) { 
-                    draw::post($post);
-                } ?>
-            </div>
-            <div class="right-col">
-                <div class="right-col-content">
-                    <? draw::side_bar(); ?>
-                </div>
-            </div>  
-        </div>
-    </div> -->
 
 <div class="container">
     <section id="content">
