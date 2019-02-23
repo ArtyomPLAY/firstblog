@@ -9,7 +9,7 @@ $posts = R::findAll('posts','ORDER BY id DESC');
     <section id="content">
         <div class="row">
             <div class="col order-2 order-md-1 left-col">
-            <? draw::post_form()?>
+            <? if(isset($_SESSION['logged_user'])) draw::post_form()?>
                 <?php foreach ($posts as $post) { 
                     draw::post($post);
                 } ?>

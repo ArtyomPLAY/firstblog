@@ -36,8 +36,12 @@ code {
   margin: 0 auto; }
 
 body {
+  max-width: 100%;
   margin-top: 72px;
   background-color: #fff; }
+
+.navbar {
+  max-width: 100%; }
 
 .bg-light {
   background-color: #fff !important;
