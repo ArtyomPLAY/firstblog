@@ -56,5 +56,25 @@ $(document).ready(function(){
         });
     });
 
+    $('.post-form input[name="post_submit"]').click(function($event){
 
+        event.preventDefault();
+        var title_ = $('.post-form input[name="title"]').val();
+        var content_ = $('.post-form textarea[name="content"]').val();
+        var tags_ = $('.post-form input[name="tags"]').val();
+        $.ajax({
+            url: "/php/components/post_form.php",
+            type: "POST",
+            data: ({title: title_, content: content_, tags:tags_}),
+            dataType: "html",
+            beforeSend: function progress(){console.log('process');},
+            success: function funcSuccess(data){
+                
+                $('.posts-container').prepend(data);
+                $('.post-form input[name="title"], textarea[name="content"], input[name="tags"]').val('');
+                $('.post-form .input-group, .row').addClass('default');
+                $('.post-form textarea').addClass('textarea-default').parent().removeClass('default').parent().removeClass('default');
+            }
+        });
+    });
 });

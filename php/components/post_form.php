@@ -1,12 +1,9 @@
 <?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 
-if(isset($_SESSION['logged_user'])):
+if(isset($_SESSION['logged_user'])/* && isset($_POST['post_submit'])*/):
     $data = $_POST;
     $user = R::findOne('users','id = ?', array($_SESSION['logged_user']->id));
-
-    if(isset($data['post_submit']))
-    {
     $post = R::dispense('posts');
     $post->title = $data['title'];
     $post->content = $data['content'];
@@ -22,6 +19,5 @@ if(isset($_SESSION['logged_user'])):
     R::store($post);
     $user->posts_counter++;
     R::store($user);
-    header('Location: /');
-    }
+    echo draw::post($post);
 endif ?>

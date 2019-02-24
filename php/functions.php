@@ -1,5 +1,4 @@
 <?php 
-
 //обращение по draw::$func
 class draw{
 //отрисовка поста
@@ -50,8 +49,7 @@ public static function post($post){ ?>
                     </div>
                     <div class="tags">
                         <h4><? if(!is_null($post->tags)) {
-                            $tags = explode(", ",$post->tags);
-                            echo 'Tags: ';//разделение на массив тегов
+                            $tags = explode(", ",$post->tags);//разделение на массив тегов
                             for($i=0;$i<count($tags);$i++){
                                     echo '<a href="search.php','?tag=',substr($tags[$i],1),'">',$tags[$i],' ','</a>';
                                 }
@@ -120,50 +118,64 @@ public static function login_popup(){ ?>
 //отрисовка юзер меню
 public static function user_menu(){ ?>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>">Profile</a>
-        <a class="dropdown-item" href="">Statistics</a>
-        <a class="dropdown-item" href="">Settings</a>
-        <a class="dropdown-item postwr" style="cursor: pointer">Write post</a>
+        <a class="dropdown-item" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>"><i class="fas fa-user-circle"></i>Profile</a>
+        <a class="dropdown-item" href=""><i class="fas fa-poll"></i>Statistics</a>
+        <a class="dropdown-item" href=""><i class="fas fa-cog"></i>Settings</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="php\auth\logout.php">Log out</a>
+        <a class="dropdown-item" href="php\auth\logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a>
 
     </div>
 <?}
 
 public static function user_menu_mobile(){ ?>
-        <li class="nav-item"><a class="nav-link" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>">Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Statistics</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Settings</a></li>
-        <li class="nav-item"><a class="nav-link postwr" style="cursor: pointer">Write post</a></li>
-        <li class="nav-item"><a class="nav-link" href="php\auth\logout.php">Log out</a></li>
+        <li class="nav-item"><a class="nav-link" href="user.php<? echo '?id=',$_SESSION['logged_user']->id;?>"><i class="fas fa-user-circle"></i>Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-poll"></i>Statistics</a></li>
+        <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-cog"></i>Settings</a></li>
+        <li class="nav-item"><a class="nav-link" href="php\auth\logout.php"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
 <?}
 
 //отрисовка пост форм
 public static function post_form(){?>
+
     <div class="post post-form">
-        <form action="php/components/post_form.php" method="post">
+        <form method="post">
 
             <div class="input-group mb-2 default">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Title</span>
+                    <span class="input-group-text text-dark bg-light" id="basic-addon1">Title</span>
                 </div>
                 <input type="text" name="title" class="form-control" placeholder="Name it somehow" aria-label="Name it somehow" aria-describedby="basic-addon1"
                 required>
             </div>
 
-            <div class="input-group mb-2">
-                <textarea name="content" class="form-control" aria-describedby="basic-addon2" placeholder="What happening?" required></textarea>
+            <div class="post-form-text mb-2">
+                <div class="row default">
+                    <div class="btn-group input-group-prepend w-100" role="group" aria-label="Basic example">
+                        <button type="button" class="btn set-bold btn-secondary bg-light w-100"><i class="fas fa-bold text-dark"></i></button>
+                        <button type="button" class="btn set-italic btn-secondary bg-light w-100"><i class="fas fa-italic text-dark"></i></button>
+                        <button type="button" class="btn set-h btn-secondary bg-light w-100"><i class="fas fa-heading text-dark"></i></button>
+                        <button type="button" class="btn set-code btn-secondary bg-light w-100"><i class="fas fa-code text-dark"></i></button>
+                        <button type="button" class="btn set-img btn-secondary bg-light w-100"><i class="fas fa-image text-dark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <? $placeholder = array("What's happening?","How are you?","Tell us something:)","Was your day good?","Some new ideas?");?>
+                        <textarea name="content" class="form-control textarea-default" aria-describedby="basic-addon2" placeholder="<? echo $placeholder[rand(0,4)] ?>" required></textarea>
+                    </div>
+                </div>
             </div>
 
             <div class="row default" style="margin-right: -15px;margin-left: -15px;">
                 <div class="col input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Tags</span>
+                        <span class="input-group-text text-dark bg-light" id="basic-addon1">Tags</span>
                     </div>
                     <input type="text" name="tags" class="form-control" placeholder="#news, #games, #angular" aria-label="#news, #games, #angular" aria-describedby="basic-addon1">
                 </div>
                 <div class="col-3" style="padding-left: 0;margin-left: -5px;">
-                    <button type="submit" name="post_submit" class="btn btn-primary btn-block">Post it</button>
+                    <input type="submit" name="post_submit" class="btn btn-primary btn-block" value="Post it"></input>
                 </div>
             </div>
 

@@ -33,6 +33,7 @@ else{
         <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=cyrillic" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">        
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="/content/ico.png">
@@ -90,9 +91,11 @@ else{
                         <div class="posts">
                         <? if($_SESSION['logged_user']->id == $data['id'])
                             draw::post_form()?>
-                                <? foreach($posts as $post) {
+                                <div class="posts-container">
+                                    <? foreach($posts as $post) {
                                     draw::post($post);
-                                } ?>
+                                    } ?>
+                                </div>
                         </div>
                     </div>
                     <div class="col-md-3 right-col">

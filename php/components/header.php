@@ -1,7 +1,7 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 $path = 'php/auth/';
 ?>
-<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light navbar-outline">
     <div class="container align-items-md-center">   
         <a href="index.php" id="header-title" class ="navbar-brand"><svg viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.924 0.599976C4.772 0.599976 5.484 0.875976 6.06 1.42798C6.636 1.97998 6.924 2.68398 6.924 3.53998C6.924 4.39598 6.636 5.09998 6.06 5.65198C5.484 6.20398 4.772 6.47998 3.924 6.47998H2.808V8.99998H0.660004V0.599976H3.924ZM3.924 4.43998C4.164 4.43998 4.364 4.35598 4.524 4.18798C4.692 4.01998 4.776 3.80398 4.776 3.53998C4.776 3.27598 4.692 3.06398 4.524 2.90398C4.364 2.73598 4.164 2.65198 3.924 2.65198H2.808V4.43998H3.924Z" fill="#fff"/>
