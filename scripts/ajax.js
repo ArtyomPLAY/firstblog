@@ -70,16 +70,15 @@ $(document).ready(function(){
             beforeSend: function progress(){},
             success: function funcSuccess(data){
                     if(data==1){
-                        $('.post[data-id='+post_id+']').remove();
-                        $('.posts-container').prepend('<div class="alert alert-success" style="cursor: pointer">Post has been deleted! :(</div>');
+                        $('.post[data-id='+post_id+']').removeClass('post').html('<div class="alert alert-success" style="cursor: pointer">Post has been deleted! :(</div>');
+                    }
+                    else{
+                        console.log(data);
                     }
                 }
         });
     });
 
-    $('.alert').click(function(){
-        $('.alert').hide();
-    });
 
 
     //post-form

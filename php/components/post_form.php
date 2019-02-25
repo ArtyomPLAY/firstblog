@@ -22,9 +22,14 @@ if(isset($_SESSION['logged_user']) & isset($_POST['title']) && isset($_POST['con
     echo draw::post($post);
 endif;
 
-if(isset($_SESSION['logged_user']) & isset($_POST['post_id'])):
+if(isset($_SESSION['logged_user']) && isset($_POST['post_id'])):
     $post_id = $_POST['post_id'];
-    R::exec("DELETE FROM posts WHERE id = '$post_id'");
-    echo 1;
+    $post = R::findOne('posts','id = ?', array($_POST['post_id']));
+    if($post->authors_id === $_SESSION['logged_user']->id){
+        R::exec("DELETE FROM posts WHERE id = '$post_id'");
+        echo 1;
+    }
+    else
+        echo 'Sosatb hacker!';
 endif;
 ?>
