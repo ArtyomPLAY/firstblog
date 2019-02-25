@@ -128,7 +128,7 @@ $(document).ready(function(){
 
     $('.popular-opener').click(function(){
         $('.threads').toggleClass('opened');
-        $('.popular-opener span').toggleClass('span-opened');
+        $('.popular-opener i').toggleClass('span-opened');
     });
    
 

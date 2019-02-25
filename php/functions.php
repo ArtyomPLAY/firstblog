@@ -12,12 +12,25 @@ public static function post($post){ ?>
                     <a href="user.php<?echo '?id=',$user->id?>">
                         <img src="<?php if($user->avatar) echo $user->avatar; else echo 'content/none_avatar.png'; ?>" alt="Author's avatar">
                     </a>
-                    <div>
+                    <div style="display: unset">
                         <span>
                             <a class="post-username"href="user.php<?echo '?id=',$user->id?>"> 
                             <?php echo '@',$user->login; ?>
                             </a>
                         </span>
+                        <? if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']->id == $user->id):?>
+                        <div class="dropdown post-menu" style="display: unset">
+                            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-angle-down"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item">Edit</a>
+                                <a class="dropdown-item">Share</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item post-delete" data-id="<?echo $post->id?>" style="color:red !important">Delete</a>
+                            </div>
+                        </div>
+                        <? endif; ?>
                         <p class="post-date"><?php echo $post->pub_date;?></p>
                     </div>
                 </div>
@@ -64,7 +77,7 @@ public static function side_bar(){ ?>
                 ?>
                 <div class="popular-opener">
                     <p class="thread_name thread-name-first">🔥 Popular 🔥</p>
-                    <span>></span>
+                    <i class="fas fa-angle-down"></i>
                 </div>
                 <ul class="threads">
                     <? foreach ($top_posts as $post) {?>
@@ -102,7 +115,7 @@ public static function login_popup(){ ?>
     <?php draw::signup_popup(); ?>
         <div id="login-popup" style="display: none;">
             <button class="login-popup-close" tabindex="5">x</button>
-            <form action="<?php echo $path ?>login.php"  method="post">
+            <form action="/php/auth/login.php"  method="post">
                 <h3>Log in</h3>
                 <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
                 <input type="password" placeholder="password"

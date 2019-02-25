@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    //login
+
     $('#login-popup form input[name="do_login"]').click(function(){
         var login = $('#login-popup input[name="login"]').val();
         var password = $('#login-popup input[name="password"]').val();
@@ -20,6 +22,8 @@ $(document).ready(function(){
         event.preventDefault();
         
     });
+
+    //post actions
 
     $('.post .like').click(function(){
         var id = $(this).data('id');
@@ -56,6 +60,30 @@ $(document).ready(function(){
         });
     });
 
+    $('.post-delete').click(function(){
+        var post_id = $(this).data('id');
+        $.ajax({
+            url: "/php/components/post_form.php",
+            type: "POST",
+            data: ({post_id: post_id}),
+            dataType: "html",
+            beforeSend: function progress(){},
+            success: function funcSuccess(data){
+                    if(data==1){
+                        $('.post[data-id='+post_id+']').remove();
+                        $('.posts-container').prepend('<div class="alert alert-success" style="cursor: pointer">Post has been deleted! :(</div>');
+                    }
+                }
+        });
+    });
+
+    $('.alert').click(function(){
+        $('.alert').hide();
+    });
+
+
+    //post-form
+
     $('.post-form input[name="post_submit"]').click(function($event){
 
         event.preventDefault();
@@ -67,7 +95,7 @@ $(document).ready(function(){
             type: "POST",
             data: ({title: title_, content: content_, tags:tags_}),
             dataType: "html",
-            beforeSend: function progress(){console.log('process');},
+            beforeSend: function progress(){},
             success: function funcSuccess(data){
                 
                 $('.posts-container').prepend(data);

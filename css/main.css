@@ -11,6 +11,9 @@ input, textarea {
   -moz-user-select: text;
   -webkit-user-select: text; }
 
+input:required, input:invalid, textarea:required {
+  box-shadow: none; }
+
 code {
   font-family: 'Courier New', Courier, monospace; }
 
@@ -43,6 +46,13 @@ body {
 
 .navbar {
   max-width: 100%; }
+
+.dropdown-menu a {
+  color: rgba(34, 46, 80, 0.85) !important; }
+.dropdown-menu i {
+  margin-left: -10px;
+  margin-right: 10px;
+  color: rgba(34, 46, 80, 0.85) !important; }
 
 .navbar-outline {
   background-color: #fff !important;
@@ -209,8 +219,14 @@ body {
       height: 50px;
       vertical-align: middle;
       border-radius: 50%; }
-    #content .left-col .post-author div {
-      display: unset; }
+  #content .left-col .post-menu {
+    float: right; }
+    #content .left-col .post-menu button {
+      background: none !important;
+      border: none !important;
+      margin: 12px 0 0 5px; }
+      #content .left-col .post-menu button:active, #content .left-col .post-menu button::selection, #content .left-col .post-menu button:focus {
+        outline: none; }
   #content .left-col .post-date {
     color: rgba(34, 46, 80, 0.5);
     font-size: 14px;
@@ -342,12 +358,11 @@ body {
         margin-top: 0;
         margin-bottom: 0; }
       #content .right-col .popular-opener .span-opened {
-        transform: rotate(270deg) !important; }
-      #content .right-col .popular-opener span {
+        transform: rotate(180deg) !important; }
+      #content .right-col .popular-opener i {
         display: none;
         position: absolute;
-        right: 30px;
-        transform: rotate(90deg); }
+        right: 30px; }
     #content .right-col .threads {
       padding: 0;
       margin: 0; }
@@ -622,6 +637,8 @@ body {
   #content .post {
     margin: 0 -10px 10px -10px !important;
     border-radius: 0 !important; }
+    #content .post .dropdown-menu {
+      left: -60px !important; }
     #content .post .tags {
       order: -1;
       margin: 0 0 10px 0; }
@@ -659,11 +676,10 @@ body {
         #content .right-col .right-col-content .popular-opener .thread-name-first {
           margin-top: 0;
           margin-bottom: 0; }
-        #content .right-col .right-col-content .popular-opener span {
+        #content .right-col .right-col-content .popular-opener i {
           display: block;
           position: absolute;
-          right: 30px;
-          transform: rotate(90deg); }
+          right: 30px; }
       #content .right-col .right-col-content .opened {
         display: block !important; }
       #content .right-col .right-col-content .threads {

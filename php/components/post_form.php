@@ -1,7 +1,7 @@
 <?php 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/php/db/db_connection.php";
 
-if(isset($_SESSION['logged_user'])/* && isset($_POST['post_submit'])*/):
+if(isset($_SESSION['logged_user']) & isset($_POST['title']) && isset($_POST['content'])):
     $data = $_POST;
     $user = R::findOne('users','id = ?', array($_SESSION['logged_user']->id));
     $post = R::dispense('posts');
@@ -20,4 +20,11 @@ if(isset($_SESSION['logged_user'])/* && isset($_POST['post_submit'])*/):
     $user->posts_counter++;
     R::store($user);
     echo draw::post($post);
-endif ?>
+endif;
+
+if(isset($_SESSION['logged_user']) & isset($_POST['post_id'])):
+    $post_id = $_POST['post_id'];
+    R::exec("DELETE FROM posts WHERE id = '$post_id'");
+    echo 1;
+endif;
+?>
