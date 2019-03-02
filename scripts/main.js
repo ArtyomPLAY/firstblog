@@ -43,27 +43,38 @@ $(document).ready(function(){
 
     $('.switch-tab').click(function(){
         if($(this).closest('#login-popup').get(0)){
-            $(this).parent().parent().parent().fadeOut();
+            $(this).parent().parent().fadeOut();
             $('#signup-popup').fadeIn();
             $('#signup-popup form input').each(function(){
                 $(this).removeAttr('readonly');
             })
         }
         else{
-           $(this).parent().parent().parent().fadeOut();
+           $(this).parent().parent().fadeOut();
             $('#login-popup').fadeIn();
         }
+        $('.passv-tip').css('display','none');
     });
  
     //обработка ввода паролей
+    $('.show-pass').click(function(){
+       $(this).toggleClass('pass-shown');
+       if($('.pass-input').attr('type')=='password')
+            $('.pass-input').prop('type','text');
+        else
+        $('.pass-input').prop('type','password');
+        event.preventDefault();
+    });
+
     $pass2 = $('#signup-popup input[name="password2"]');
 
     $('#signup-popup input[name^="password"]').keyup(function(){
-        if($pass2.val() != $('#signup-popup input[name="password"]').val() && $('.passv-tip').css('display') != 'block'){
-            $('.passv-tip').css('display','block');
+        if($pass2.val() != $('#signup-popup input[name="password"]').val() && $('.passv-tip').css('display') != 'flex'){
+            $('.passv-tip').css('display','flex');
+            $('.passv-tip p').html("Passwords don't match");
 
         }
-        else if($pass2.val() == $('#signup-popup input[name="password"]').val() && $('.passv-tip').css('display') == 'block'){
+        else if($pass2.val() == $('#signup-popup input[name="password"]').val() && $('.passv-tip').css('display') == 'flex'){
             $('.passv-tip').slideDown('500',function(){$(this).css('display','none')});
         }
     });

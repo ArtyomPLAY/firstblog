@@ -8,7 +8,7 @@ $(document).ready(function(){
         $.ajax({
             url: "/php/auth/login.php",
             type: "POST",
-            data: ({login: login, password: password}),
+            data: ({login: login, password: password, log_in:1}),
             dataType: "html",
             beforeSend:     function progress(){},
             success:     function funcSuccess(data){
@@ -16,9 +16,42 @@ $(document).ready(function(){
                     location.reload();
                 }
                 else
-                    $('#login-popup form .passv-tip').html(data).show();
+                    $('#login-popup form .passv-tip').css('display','flex');
+                    $('#login-popup form .passv-tip p').html(data);
             }        
         });
+        event.preventDefault();
+        
+    });
+
+    //sign up
+    $('#signup-popup form input[name="do_signup"]').click(function(){
+        console.log('sss');
+        var login = $('#signup-popup input[name="login"]').val();
+        var password = $('#signup-popup input[name="password"]').val();
+        var email = $('#signup-popup input[name="email"]').val();
+        if(login !=''){
+            $.ajax({
+                url: "/php/auth/login.php",
+                type: "POST",
+                data: ({login: login, password: password, email: email, sign_up:1}),
+                dataType: "html",
+                beforeSend:     function progress(){},
+                success:     function funcSuccess(data){
+                    if(data == 1){
+                        location.reload();
+                    }
+                    else
+                        $('#signup-popup form .passv-tip').css('display','flex');
+                        $('#signup-popup form .passv-tip p').html(data);
+                }        
+            });
+        }
+        else{
+            $('#signup-popup form .passv-tip').css('display','flex');
+            $('#signup-popup form .passv-tip p').html('Enter data');
+        }
+            
         event.preventDefault();
         
     });

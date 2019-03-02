@@ -461,7 +461,7 @@ body {
         margin: 15px auto auto auto; }
 
 #login-wrap {
-  z-index: 10;
+  z-index: 5;
   position: fixed;
   top: 0;
   right: 0;
@@ -476,106 +476,76 @@ body {
   width: 400px;
   height: 500px;
   border-radius: 10px;
+  display: flex;
   box-shadow: 0 5px 20px #0000002d;
   position: fixed;
   margin: auto;
-  align-items: center;
+  align-content: center;
+  justify-content: center;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 20px; }
-  #login-popup button, #signup-popup button {
-    float: right;
-    border-radius: 0;
-    padding: 5px 10px 5px 10px;
-    color: #222E50;
-    font-size: 19px;
-    font-weight: 500;
-    background-color: #fff;
-    cursor: pointer;
-    transition: 0.3s all;
-    -webkit-transition: 0.3s all; }
-    #login-popup button:hover, #login-popup button::selection, #login-popup button:focus, #signup-popup button:hover, #signup-popup button::selection, #signup-popup button:focus {
-      background-color: #23464d2a;
-      box-shadow: none;
-      border-radius: 20px;
-      background-color: rgba(0, 0, 0, 0.15);
-      transition: 0.3s all;
-      -webkit-transition: 0.3s all;
-      outline: 0; }
+  #login-popup .login-popup-close, #signup-popup .login-popup-close {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: rgba(51, 51, 51, 0.5) !important; }
+    #login-popup .login-popup-close:hover, #login-popup .login-popup-close::selection, #login-popup .login-popup-close:focus, #signup-popup .login-popup-close:hover, #signup-popup .login-popup-close::selection, #signup-popup .login-popup-close:focus {
+      outline: 0;
+      color: rgba(51, 51, 51, 0.8) !important;
+      cursor: pointer; }
   #login-popup form, #signup-popup form {
+    justify-self: center;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-    #login-popup form input, #signup-popup form input {
-      background-color: rgba(0, 121, 145, 0.1);
-      color: #222E50;
-      font-size: 14px;
-      box-sizing: border-box;
-      border: 0;
-      border-radius: 20px;
-      margin: 5px auto;
-      width: 185px;
-      padding: 15px; }
-      #login-popup form input:hover, #login-popup form input::selection, #login-popup form input:focus, #signup-popup form input:hover, #signup-popup form input::selection, #signup-popup form input:focus {
-        background-color: rgba(0, 0, 0, 0.15);
-        box-shadow: 0 3px 7px #0000000e;
-        transition: 0.3s all;
-        outline-style: none; }
-      #login-popup form input[type=submit], #signup-popup form input[type=submit] {
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: #fff;
-        background-color: #007991;
+    justify-items: center; }
+    #login-popup form .alert-danger, #signup-popup form .alert-danger {
+      display: none; }
+    #login-popup form .show-pass, #signup-popup form .show-pass {
+      position: relative;
+      top: -31px;
+      left: 185px;
+      color: rgba(51, 51, 51, 0.5) !important; }
+      #login-popup form .show-pass:hover, #signup-popup form .show-pass:hover {
+        color: rgba(51, 51, 51, 0.8) !important;
         cursor: pointer; }
-        #login-popup form input[type=submit]:hover, #login-popup form input[type=submit]::selection, #login-popup form input[type=submit]:focus, #signup-popup form input[type=submit]:hover, #signup-popup form input[type=submit]::selection, #signup-popup form input[type=submit]:focus {
-          background-color: #005b6d;
-          box-shadow: 0 3px 7px #0000000e;
-          transition: 0.3s all; }
-    #login-popup form h3, #signup-popup form h3 {
-      font-size: 36px;
-      font-weight: 500;
-      cursor: default;
-      margin: 0 0 10px 3px; }
+    #login-popup form .pass-shown, #signup-popup form .pass-shown {
+      color: #007991 !important; }
+    #login-popup form input[type="submit"], #signup-popup form input[type="submit"] {
+      margin-top: -24px;
+      background-color: #007991;
+      border-color: #007991; }
+      #login-popup form input[type="submit"]:hover, #signup-popup form input[type="submit"]:hover {
+        background-color: #007087;
+        border-color: #007087; }
+      #login-popup form input[type="submit"]:active, #signup-popup form input[type="submit"]:active {
+        background-color: #006478 !important;
+        border-color: #006478 !important; }
     #login-popup form .passv-tip, #signup-popup form .passv-tip {
-      display: none;
-      color: #ff3131;
-      font-size: 14px;
-      background-color: #ff313133;
-      padding: 5px;
-      border-radius: 14px;
-      margin: 2px 0 2px 0;
-      text-align: center;
-      transition: 0.3s all;
-      -webkit-transition: 0.3s all; }
-    #login-popup form p, #signup-popup form p {
-      margin: 2px 0 0 0;
-      display: flex;
       justify-content: center; }
-      #login-popup form p a, #signup-popup form p a {
-        font-size: 14px;
-        font-weight: 500;
-        width: 80px;
-        text-decoration: none;
-        text-transform: lowercase;
-        color: #007991;
-        letter-spacing: 0;
-        padding: 5px 0 5px 0;
-        border-radius: 20px;
-        text-align: center;
-        transition: 0.3s all; }
-        #login-popup form p a:hover, #login-popup form p a::selection, #login-popup form p a:focus, #signup-popup form p a:hover, #signup-popup form p a::selection, #signup-popup form p a:focus {
-          color: #222;
+      #login-popup form .passv-tip p, #signup-popup form .passv-tip p {
+        align-self: center;
+        margin: 0; }
+    #login-popup form .switch-tab, #signup-popup form .switch-tab {
+      font-weight: 500;
+      border-radius: 0;
+      width: 100%; }
+      #login-popup form .switch-tab a, #signup-popup form .switch-tab a {
+        color: rgba(0, 104, 125, 0.7);
+        width: 100%;
+        display: flex;
+        justify-content: center; }
+        #login-popup form .switch-tab a:hover, #login-popup form .switch-tab a::selection, #login-popup form .switch-tab a:focus, #signup-popup form .switch-tab a:hover, #signup-popup form .switch-tab a::selection, #signup-popup form .switch-tab a:focus {
+          color: #f6a623;
+          text-decoration: none;
           cursor: pointer;
-          width: 185px;
-          background-color: rgba(0, 0, 0, 0.15);
-          transition: 0.4s all;
-          outline: 0; }
+          background-color: #e9ecef;
+          border-radius: 5px;
+          outline: none; }
 
 #error-page {
   background-color: #007991;
@@ -634,6 +604,9 @@ body {
       margin-top: 10px;
       overflow-x: scroll; }
 
+  #content .alert {
+    margin: 10px -10px;
+    border-radius: 0px; }
   #content .post {
     margin: 0 -10px 10px -10px !important;
     border-radius: 0 !important; }

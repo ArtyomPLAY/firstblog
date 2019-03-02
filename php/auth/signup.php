@@ -11,11 +11,11 @@ if (isset($data['do_signup'])) {
 
         //если логин занят
     if(R::count('users',"login = ?", array($data['login']))>0){
-        echo '<div style="color:red;">', 'This login is already in use, try again.', '</div><hr>';
+        echo 'Login is already used';
     }
         //если емаил занят
     else if(R::count('users',"email = ?", array($data['email']))>0){
-        echo '<div style="color:red;">', 'This email is already in use, try again.', '</div><hr>'; 
+        echo 'Email is already used';
     }
         //если не занят ни емаил ни логин
     else{
@@ -27,11 +27,9 @@ if (isset($data['do_signup'])) {
         $user->username = '';
         $user->posts_counter = 0;
         R::store($user);
-        echo '<div style="color:green;">Registration successful.</div><hr>';
-        header('Location: /');
+        echo 1;
 
     }       
 }
-draw::user_menu();
 ?>
 

@@ -92,37 +92,63 @@ public static function side_bar(){ ?>
 <? }
 
 //отрисовка окна реги 
-public static function signup_popup(){ $path = 'php/auth/';?>
+public static function signup_popup(){?>
     <div id="signup-popup" style="display: none">
-    <button class="login-popup-close" tabindex="7">x</button>
-    <form action="<?php echo $path ;?>signup.php"  method="post">
+    <button class="login-popup-close" tabindex="7"><i class="fas fa-times"></i></button>
+    <form class="align-self-center justify-content-center" action="/php/auth/login.php"  method="post">
         <h3>Sign up</h3>
-        <input type="text" name="login" placeholder="login" required tabindex="1" readonly pattern="\D[^А-Яа-яЁё]+$"> 
-        <input type="email" name="email" placeholder="email" required tabindex="2" readonly>
-        <input type="password" name="password" placeholder="password" required tabindex="3" >
-        <input type="password" name="password2" placeholder="confirm password" required tabindex="4" >
-        <p class="passv-tip">Passwords do not match</p>
-        <input type="submit" name="do_signup" value="Sign up" tabindex="5">
-        <p><a tabindex="6" class="switch-tab">or log in</a></p>
+        <div class="passv-tip mb-2 alert alert-danger" style="height: 38px">
+            <p class="text-danger"></p>
+        </div>
+
+        <div class="form-group mb-2">
+            <input class="form-control"  type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="form-group mb-2">
+            <input class="form-control"  type="email" placeholder="email" tabindex="2" required name="email" readonly aria-describedby="basic-addon1">
+        </div>
+
+        <div class="form-group mb-2">
+            <input class="form-control pass-input" type="password" placeholder="password"
+            tabindex="3" required name="password"> 
+            <i class="show-pass fas fa-eye"></i>
+        </div>
+
+        <div class="form-group mb-2">
+            <input style="margin-top: -24px;" class="form-control" type="password" placeholder="password"
+            tabindex="4" required name="password2"> 
+        </div>
+
+        <input class="btn btn-primary mb-2" style="margin-top: 0;" type="submit" value="Sign up" tabindex="5" name="do_signup">
+
+        <p class="switch-tab mr-auto ml-auto"><a tabindex="6">or sign up</a></p>
     </form>
 </div>
 <?}
 
 //отрисовка логин окна
 public static function login_popup(){ ?>
-    <link rel="stylesheet" href="/css/main.css">
     <div id="login-wrap" style="display: none"></div>
     <?php draw::signup_popup(); ?>
         <div id="login-popup" style="display: none;">
-            <button class="login-popup-close" tabindex="5">x</button>
-            <form action="/php/auth/login.php"  method="post">
-                <h3>Log in</h3>
-                <input type="text" placeholder="login" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$">
-                <input type="password" placeholder="password"
-                tabindex="2" required name="password" readonly>
-                <p class="passv-tip"></p>
-                <input type="submit" value="Log in" tabindex="3" name="do_login">
-                <p><a tabindex="4" class="switch-tab">or sign up</a></p>
+            <button class="login-popup-close" tabindex="5"><i class="fas fa-times"></i></button>
+            <form class="align-self-center justify-content-center" action="/php/auth/login.php"  method="post">
+                <h3 class="mb-3">Log in</h3>
+                <div class="passv-tip mb-2 alert alert-danger" style="height: 38px">
+                    <p class="text-danger"></p>
+                </div>
+                <div class="form-group mb-2">
+                    <input class="form-control"  type="text" placeholder="login or email" tabindex="1" required name="login" readonly pattern="\D[^А-Яа-яЁё]+$" aria-describedby="basic-addon1">
+                </div>
+                <div class="form-group mb-2">
+                        <input class="form-control pass-input" type="password" placeholder="password"
+                        tabindex="2" required name="password" readonly> 
+                        <i class="show-pass fas fa-eye"></i>
+                </div>
+                
+                <input class="btn btn-primary mb-2" type="submit" value="Log in" tabindex="3" name="do_login">
+                <p class="switch-tab mr-auto ml-auto"><a tabindex="4">or sign up</a></p>
             </form>
         </div>
 <?}
