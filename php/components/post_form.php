@@ -28,6 +28,7 @@ if(isset($_SESSION['logged_user']) && isset($_POST['post_id'])):
     $user = R::findOne('users','id = ?', array($_SESSION['logged_user']->id));
     if($post->authors_id === $_SESSION['logged_user']->id){
         R::exec("DELETE FROM posts WHERE id = '$post_id'");
+        R::exec("DELETE FROM actions WHERE post_id ='$post_id'");
         $user->posts_counter--;
         R::store($user);
         echo 1;
