@@ -96,7 +96,7 @@ public static function signup_popup(){?>
     <div id="signup-popup" style="display: none">
     <button class="login-popup-close" tabindex="7"><i class="fas fa-times"></i></button>
     <form class="align-self-center justify-content-center" action="/php/auth/login.php"  method="post">
-        <h3>Sign up</h3>
+        <h3 class="mb-3">Sign up</h3>
         <div class="passv-tip mb-2 alert alert-danger" style="height: 38px">
             <p class="text-danger"></p>
         </div>

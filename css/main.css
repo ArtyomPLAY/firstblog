@@ -492,12 +492,13 @@ body {
     background: none;
     position: absolute;
     top: 20px;
-    right: 20px;
-    color: rgba(51, 51, 51, 0.5) !important; }
-    #login-popup .login-popup-close:hover, #login-popup .login-popup-close::selection, #login-popup .login-popup-close:focus, #signup-popup .login-popup-close:hover, #signup-popup .login-popup-close::selection, #signup-popup .login-popup-close:focus {
-      outline: 0;
-      color: rgba(51, 51, 51, 0.8) !important;
-      cursor: pointer; }
+    right: 20px; }
+    #login-popup .login-popup-close i, #signup-popup .login-popup-close i {
+      color: rgba(51, 51, 51, 0.5) !important; }
+      #login-popup .login-popup-close i:hover, #login-popup .login-popup-close i::selection, #login-popup .login-popup-close i:focus, #signup-popup .login-popup-close i:hover, #signup-popup .login-popup-close i::selection, #signup-popup .login-popup-close i:focus {
+        outline: 0;
+        color: rgba(51, 51, 51, 0.8) !important;
+        cursor: pointer; }
   #login-popup form, #signup-popup form {
     justify-self: center;
     display: flex;
