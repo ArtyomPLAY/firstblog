@@ -239,7 +239,7 @@ public static function slider(){
         $user= R::findOne('users','id=?',array($post->authors_id));
         ?>
       <div class="carousel-item <? if($i==0) echo 'active'?>">
-        <img src="<? echo $link[0][0]?>" class="d-block w-100 gradient-img">
+        <img src="<? echo $link[0][0]?>" class="d-block w-100 gradient-img align-middle">
         <div class="carousel-caption d-none d-md-block" style="padding-bottom: 0;">
           <h4><a href="user.php<?echo '?id=',$user->id?>"><?echo '@',$user->login?></a></h4>  
           <p><?echo $post->title?></p>
