@@ -31,7 +31,7 @@ $posts = R::findAll('posts','tags LIKE :tag ORDER BY id DESC',array(':tag'=> '%'
     <section id="content">
         <div class="row">
             <div class="col left-col">
-                <div class="post">
+                <div class="post post-form">
                     <h4><? echo '#', $data_get['tag'], ' - ',count($posts),' ',count($posts) == 1 ? 'post' : 'posts' ?></h4>
                 </div>
                 <?php foreach ($posts as $post) { 

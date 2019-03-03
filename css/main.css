@@ -181,6 +181,33 @@ body {
       background-color: #006478 !important;
       border-color: #006478 !important; }
 
+.bd-example {
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 10px; }
+  .bd-example .carousel-item {
+    height: 300px;
+    overflow: hidden;
+    align-content: center; }
+    .bd-example .carousel-item .gradient-img {
+      background: black;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0e0f0f 100%); }
+    .bd-example .carousel-item p, .bd-example .carousel-item h4 {
+      width: max-content;
+      font-weight: 400;
+      padding: 0 5px 0 5px;
+      background-color: rgba(34, 46, 80, 0.5);
+      color: #fff; }
+    .bd-example .carousel-item p {
+      font-size: 15px; }
+    .bd-example .carousel-item h4 {
+      font-size: 24px; }
+      .bd-example .carousel-item h4 a {
+        color: #fff; }
+        .bd-example .carousel-item h4 a:hover {
+          text-decoration: none;
+          color: #f6a623; }
+
 #content {
   display: contents;
   overflow: hidden; }
@@ -252,7 +279,7 @@ body {
     #content .left-col .post-content img {
       display: block;
       margin: 20px auto 20px auto;
-      width: 50%;
+      width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 100, 120, 0.06);
       height: auto; }

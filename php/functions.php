@@ -222,6 +222,45 @@ public static function post_form(){?>
     </div>
 <?}
 
+//слайдер с постами с изображениями
+public static function slider(){
+    $posts=R::findAll('posts',"WHERE `content` LIKE '%<img%' ORDER BY rand() LIMIT 5");?>
+<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <? for($i=1;$i<sizeof($posts);$i++){?>
+      <li data-target="#carouselExampleCaptions" data-slide-to="$i"></li>
+      <?}?>
+    </ol>
+    <div class="carousel-inner">
+    <? $i=0;foreach ($posts as $post) { 
+        preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)).(png|jpeg|jpg)#', $post->content, $link);
+        $user= R::findOne('users','id=?',array($post->authors_id));
+        ?>
+      <div class="carousel-item <? if($i==0) echo 'active'?>">
+        <img src="<? echo $link[0][0]?>" class="d-block w-100 gradient-img">
+        <div class="carousel-caption d-none d-md-block" style="padding-bottom: 0;">
+          <h4><a href="user.php<?echo '?id=',$user->id?>"><?echo '@',$user->login?></a></h4>  
+          <p><?echo $post->title?></p>
+        </div>
+      </div>
+    <?$i++;}?>
+    </div>
+    <?if(sizeof($posts)>1){?>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <?}?>
+  </div>
+</div>
+<?} 
+
 
 } //окончание класса draw
 ?> 
