@@ -7,8 +7,16 @@ public static function post($post){ ?>
                 <?
                     $user =  R::findOne('users', 'id = ?', array($post->authors_id));//поиск юзера по id ?
                     $liked = R::findOne('actions','user_id = :user_id AND post_id = :post_id AND action_type = "1"',array(':user_id'=>$_SESSION['logged_user']->id,':post_id'=>$post->id));
+                    $reposted = R::findOne('actions','user_id = :user_id AND post_id = :post_id AND action_type = "11"',array(':user_id'=>$_SESSION['logged_user']->id,':post_id'=>$post->id));
                 ?>
-                <div class="post-author">
+                <? if($post->action_type == 11):
+                    $post_is_reposted = true;
+                    $user_reposted = R::findOne('users', 'id = ?', array($post->user_id));?>
+                    <div class="post-reposted">
+                        <p><i class="fas fa-retweet"> </i><? echo '@',$user_reposted->login,' reposted' ?></p>
+                    </div>
+                <?endif;?>
+                <div class="post-author" <?if($post_is_reposted) echo 'style="border-radius: 0;"'?>>
                     <a href="user.php<?echo '?id=',$user->id?>">
                         <img src="<?php if($user->avatar) echo $user->avatar; else echo 'content/none_avatar.png'; ?>" alt="Author's avatar">
                     </a>
@@ -46,9 +54,9 @@ public static function post($post){ ?>
                                 </svg>
                             <? if($post->likes!=0) echo '<p>',$post->likes,'</p>';?>
                         </div>
-                        <div class="social-btn">
+                        <div class="social-btn repost-btn" data-id="<?echo $post->id?>">
                             <svg class="repost" data-id="<?echo $post->id?>" viewBox="0 0 23 19" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18.9118 17L18.2347 17.736L18.9764 18.4182L19.6529 17.6714L18.9118 17ZM4.70588 2L5.447 1.32863L4.70588 0.510508L3.96476 1.32863L4.70588 2ZM10.2647 3H15.9118V1H10.2647V3ZM17.9118 5V17H19.9118V5H17.9118ZM19.5888 16.264L15.8829 12.8549L14.5289 14.3269L18.2347 17.736L19.5888 16.264ZM19.6529 17.6714L22.7411 14.2623L21.2589 12.9195L18.1706 16.3286L19.6529 17.6714ZM13.3529 16H7.70588V18H13.3529V16ZM5.70588 14V2H3.70588V14H5.70588ZM3.96476 1.32863L0.258877 5.41954L1.74112 6.76228L5.447 2.67137L3.96476 1.32863ZM3.96476 2.67137L7.67064 6.76228L9.15289 5.41954L5.447 1.32863L3.96476 2.67137ZM7.70588 16C6.60131 16 5.70588 15.1046 5.70588 14H3.70588C3.70588 16.2091 5.49674 18 7.70588 18V16ZM15.9118 3C17.0163 3 17.9118 3.89543 17.9118 5H19.9118C19.9118 2.79086 18.1209 1 15.9118 1V3Z" fill="#BABDC8"/>
+                                <path class="<? if($reposted) echo 'reposted'?>" d="M18.9118 17L18.2347 17.736L18.9764 18.4182L19.6529 17.6714L18.9118 17ZM4.70588 2L5.447 1.32863L4.70588 0.510508L3.96476 1.32863L4.70588 2ZM10.2647 3H15.9118V1H10.2647V3ZM17.9118 5V17H19.9118V5H17.9118ZM19.5888 16.264L15.8829 12.8549L14.5289 14.3269L18.2347 17.736L19.5888 16.264ZM19.6529 17.6714L22.7411 14.2623L21.2589 12.9195L18.1706 16.3286L19.6529 17.6714ZM13.3529 16H7.70588V18H13.3529V16ZM5.70588 14V2H3.70588V14H5.70588ZM3.96476 1.32863L0.258877 5.41954L1.74112 6.76228L5.447 2.67137L3.96476 1.32863ZM3.96476 2.67137L7.67064 6.76228L9.15289 5.41954L5.447 1.32863L3.96476 2.67137ZM7.70588 16C6.60131 16 5.70588 15.1046 5.70588 14H3.70588C3.70588 16.2091 5.49674 18 7.70588 18V16ZM15.9118 3C17.0163 3 17.9118 3.89543 17.9118 5H19.9118C19.9118 2.79086 18.1209 1 15.9118 1V3Z" fill="#BABDC8"/>
                             </svg>
                             <? if($post->reposts!=0) echo '<p>', $post->reposts, '</p>';?>
                         </div>

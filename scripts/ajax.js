@@ -64,7 +64,7 @@ $(document).ready(function(){
         $.ajax({
             url: "/php/auth/login.php",
             type: "POST",
-            data: ({post_id: $(this).data('id')}),
+            data: ({post_id: $(this).data('id'), like: true}),
             dataType: "html",
             beforeSend: function progress(){},
             success: function funcSuccess(data){
@@ -109,6 +109,41 @@ $(document).ready(function(){
                         console.log(data);
                     }
                 }
+        });
+    });
+
+    $('.repost-btn').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+            url: "/php/auth/login.php",
+            type: "POST",
+            data: ({ post_id: $(this).data('id'), repost: true }),
+            dataType: "html",
+            beforeSend: function progress(){},
+            success: function funcSuccess(data){
+                if(data == 1){
+                    var reposts = $('.post[data-id="'+id+'"] .repost').next('p').text();
+                    console.log('rep')
+                    $('.post[data-id="'+id+'"] .repost path').addClass('reposted');
+                    if($('.post[data-id="'+id+'"] .repost').next('p').text()!=0)
+                        $('.post[data-id="'+id+'"] .repost').next('p').text(parseInt(reposts) + 1);
+                    else
+                    $('.post[data-id="'+id+'"] .social-btn .repost').parent().append('<p>'+'1'+'</p>')
+                }
+                else if(data == 2){
+
+                    var reposts = $('.post[data-id="'+id+'"] .repost').next('p').text();
+                    $('.post[data-id="'+id+'"] .repost path').removeClass('reposted');
+                    if($('.post[data-id="'+id+'"] .repost').next('p').text()>1)
+                        $('.post[data-id="'+id+'"] .repost').next('p').text(parseInt(reposts) - 1);
+                    else
+                    $('.post[data-id="'+id+'"] .repost').next('p').remove();
+                }
+                else{
+                    $('.post[data-id="'+id+'"]').append('<span class="hint">'+data+'</span>');
+                    $('.hint').css('top', pos.top -75).delay(4000).fadeOut(300);
+                }
+            }        
         });
     });
 

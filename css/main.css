@@ -197,7 +197,8 @@ body {
       font-weight: 400;
       padding: 0 5px 0 5px;
       background-color: rgba(34, 46, 80, 0.5);
-      color: #fff; }
+      color: #fff;
+      text-align: left; }
     .bd-example .carousel-item p {
       font-size: 15px; }
     .bd-example .carousel-item h4 {
@@ -217,6 +218,16 @@ body {
     padding: 20px;
     border-radius: 10px;
     background-color: rgba(34, 34, 34, 0.05); }
+    #content .left-col .post .post-reposted {
+      background-color: rgba(0, 121, 145, 0.3);
+      margin: -20px -20px 20px -20px;
+      padding: 5px 0 5px 20px;
+      border-radius: 10px 10px 0 0; }
+      #content .left-col .post .post-reposted p {
+        margin: 0;
+        font-weight: 500; }
+        #content .left-col .post .post-reposted p i {
+          margin-right: 5px; }
     #content .left-col .post a {
       color: #1abc9c; }
     #content .left-col .post h4 {
@@ -293,6 +304,8 @@ body {
       align-items: center;
       display: flex;
       justify-self: flex-start; }
+      #content .left-col .bottom-acts .social-acts .repost-btn:hover .repost path {
+        fill: #007991; }
       #content .left-col .bottom-acts .social-acts .social-btn {
         margin-right: 20px;
         display: flex;
@@ -321,6 +334,8 @@ body {
         #content .left-col .bottom-acts .social-acts .social-btn .liked {
           fill: #EB5757 !important;
           stroke: #EB5757 !important; }
+        #content .left-col .bottom-acts .social-acts .social-btn .reposted {
+          fill: #007991 !important; }
         #content .left-col .bottom-acts .social-acts .social-btn .repost path {
           fill: rgba(34, 46, 80, 0.5); }
           #content .left-col .bottom-acts .social-acts .social-btn .repost path:hover {
@@ -637,7 +652,7 @@ body {
     overflow: hidden;
     border-radius: 0px; }
     .bd-example .carousel-item {
-      height: 150px; }
+      height: 250px; }
 
   #content .alert {
     margin: 10px -10px;
@@ -645,6 +660,8 @@ body {
   #content .post {
     margin: 0 -10px 10px -10px !important;
     border-radius: 0 !important; }
+    #content .post .post-reposted {
+      border-radius: 0 !important; }
     #content .post .dropdown-menu {
       left: -60px !important; }
     #content .post .tags {

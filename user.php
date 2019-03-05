@@ -24,9 +24,38 @@ if(empty($user)){ ?>
     </div>
 
 
-<?}
+<?}/*
+select *
+from posts p
+left join (
+  select post_id
+  from actions a
+  where
+      a.user_id = ? and
+      a.action_type = 1
+) a on
+    a.post_id = p.id
+where
+    p.authors_id = ? or
+    a.post_id is not null
+    */ 
 else{
-    $posts = R::findAll('posts','authors_id=? ORDER BY id DESC',array($user->id));
+    $posts1 = R::getAll('select *
+    from posts p
+    left join (
+      select post_id,action_type,user_id
+      from actions a
+      where
+          a.user_id = :user_id and
+          a.action_type = 11
+    ) a on
+        a.post_id = p.id
+    where
+        p.authors_id = :user_id or
+        a.post_id is not null
+    ORDER BY id DESC    ',[':user_id'=>$user->id]);
+    $posts = R::convertToBeans('posts_joined',$posts1);
+        //var_dump($posts[3]);
     ?>
     <head>
         <meta charset="UTF-8">
