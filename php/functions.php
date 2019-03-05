@@ -14,6 +14,7 @@ public static function post($post){ ?>
                     $user_reposted = R::findOne('users', 'id = ?', array($post->user_id));?>
                     <div class="post-reposted">
                         <p><i class="fas fa-retweet"> </i><? echo '@',$user_reposted->login,' reposted' ?></p>
+                        <p class="repost-date" ><? echo $post->action_date?></p>
                     </div>
                 <?endif;?>
                 <div class="post-author" <?if($post_is_reposted) echo 'style="border-radius: 0;"'?>>

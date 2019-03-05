@@ -2,4 +2,3 @@
 *.css.map
 *.json
 **/node_modules/
-db_connection.php

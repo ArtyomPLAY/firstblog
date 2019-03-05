@@ -13,6 +13,6 @@ ini_set('session.gc_maxlifetime', 604800);
 ini_set('session.cookie_lifetime', 604800);
 
 session_start();
-date_default_timezone_set('Europe/Moscow');
+date_default_timezone_set('Europe/Moscow'); 
 
 ?>

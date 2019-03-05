@@ -43,7 +43,7 @@ else{
     $posts1 = R::getAll('select *
     from posts p
     left join (
-      select post_id,action_type,user_id
+      select post_id,action_type,user_id,action_date
       from actions a
       where
           a.user_id = :user_id and
